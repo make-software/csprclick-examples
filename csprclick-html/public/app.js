@@ -51,7 +51,6 @@ const clickSDKOptions = {
   appName: 'CSPR.click demo',
   appId: 'csprclick-template',
   providers: ['casper-wallet', 'ledger', 'torus-wallet', 'casperdash'],
-  csprclickHost: 'https://casper-click-static.dev.make.services'
 };
 
 window.addEventListener('csprclick:loaded', () => {
