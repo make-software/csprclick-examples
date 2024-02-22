@@ -74,6 +74,4 @@ const clickSDKOptions = {
   appId: 'csprclick-template',
   contentMode: 'iframe',
   providers: ['casper-wallet', 'ledger', 'torus-wallet', 'casperdash'],
-  csprclickHost: 'https://casper-click-static.dev.make.services'
-
 };
