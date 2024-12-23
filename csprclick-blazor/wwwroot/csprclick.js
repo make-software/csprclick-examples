@@ -37,6 +37,7 @@ const clickUIOptions = {
   uiContainer: 'csprclick-top-bar',
   styledCompContainer: 'csprclick-styles',
   defaultTheme: 'light',
+  showTopBar: true,
   onThemeChanged,
   accountMenuItems,
   networkSettings,

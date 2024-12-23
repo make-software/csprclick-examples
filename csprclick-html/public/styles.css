@@ -3,7 +3,7 @@ body {
   margin: 0px;
 }
   
-#csprclick-top-bar {
+#csprclick-ui {
   background-color: rgb(24, 29, 64);;
   position: fixed;
   top: 0px;
@@ -11,7 +11,7 @@ body {
   width: 100%;
 }
 
-.dark #csprclick-top-bar {
+.dark #csprclick-ui {
   background-color: rgb(19, 25, 51);;
 }
 

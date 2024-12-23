@@ -1,7 +1,7 @@
 
 // Set up CSPR.click UI (Top Bar)
 //
-const topBarContainer = 'csprclick-top-bar';
+const uiContainer = 'csprclick-ui';
 
 const defaultTheme = 'light';
 

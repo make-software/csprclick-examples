@@ -15,3 +15,11 @@ Location: `./csprclick-html`
 An example of how to integrate CSPR.click in your ASP.NET Core Blazor application (.NET 8).
 
 Location: `./csprclick-blazor`
+
+### NextJS (SSR)
+
+You can integrate CSPR.click in a Next JS application that uses Server Side Rendering by using CSPR.click NextJS template.
+
+Thanks to [thebadking](https://github.com/thebadking) and [@Charlie85270](https://github.com/Charlie85270) for this contribution!
+
+Location: https://github.com/make-software/csprclick-nextjs-template
