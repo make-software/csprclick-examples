@@ -37,10 +37,8 @@ const networkSettings = {
   }
 
 const clickUIOptions = {
-  uiContainer,
-  rootAppElement: '#app',
-  show1ClickModal: true,
-  showTopBar: true,
+  uiContainer: 'csprclick-top-bar',
+  topBarContainer,
   defaultTheme,
   onThemeChanged,
   accountMenuItems,
@@ -50,7 +48,7 @@ const clickUIOptions = {
 const clickSDKOptions = {
   appName: 'CSPR.click demo',
   appId: 'csprclick-template',
-  providers: ['casper-wallet', 'ledger', 'torus-wallet', 'casperdash'],
+  providers: ['casper-wallet', 'ledger', 'metamask-snap', 'casperdash'],
 };
 
 window.addEventListener('csprclick:loaded', () => {

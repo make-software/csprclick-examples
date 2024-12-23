@@ -27,7 +27,7 @@ html, body {
     background-color: rgb(19, 25, 51);
 }
 
-#csprclick-ui > div {
+#csprclick-top-bar > div {
     padding: 0 24px 0 28px;
     margin: auto;
 }
