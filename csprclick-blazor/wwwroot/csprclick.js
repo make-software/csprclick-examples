@@ -72,5 +72,5 @@ const clickSDKOptions = {
   appName: 'CSPR.click demo',
   appId: 'csprclick-template',
   contentMode: 'iframe',
-  providers: ['casper-wallet', 'ledger', 'metamask-snap', 'casperdash'],
+  providers: ['casper-wallet', 'ledger', 'metamask-snap'],
 };
