@@ -37,8 +37,8 @@ const networkSettings = {
   }
 
 const clickUIOptions = {
-  uiContainer: 'csprclick-top-bar',
-  topBarContainer,
+  uiContainer,
+  rootAppElement: '#app',
   defaultTheme,
   onThemeChanged,
   accountMenuItems,
