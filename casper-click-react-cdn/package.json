@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "casper-js-sdk": "5.0.5",
+    "prismjs": "^1.30.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
