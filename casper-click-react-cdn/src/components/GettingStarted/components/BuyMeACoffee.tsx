@@ -124,7 +124,7 @@ export const BuyMeACoffee = () => {
             {`const handleSignTransaction = async () => {
   const sender = activeAccount?.public_key?.toLowerCase();
   const deploy = makeTransferDeploy(sender, recipientPk, '50000000000', 'casper-test');
-  clickRef?.send(deploy, sender)
+  window.csprclick?.send(deploy, sender)
     .then(res => {
 	  if (res?.deployHash) {
 	  	alert('Transaction sent successfully: ' + res.deployHash);
