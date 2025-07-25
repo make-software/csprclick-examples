@@ -92,7 +92,7 @@ export const SignedInBrief = () => {
           </li>
         </ol>
       </Section>
-      <h3 id="useRef">🪝️ useClickRef hook</h3>
+      <h3 id="useRef">🪝️ CDN link</h3>
       <UseClickRefHook />
       <h3 id="account">🆔 Get access to your user account</h3>
       <Account />
