@@ -34,7 +34,7 @@ export const Account = () => {
     <>
       <Section>
         <span>
-          Use <code>useClickRef()</code> hook to get a reference to the CSPR.click SDK instance.
+          Use <code>window.csprclick</code> to get a reference to the CSPR.click SDK instance.
           With this instance you easily can get an access to user&apos;s active account with all
           information: such as public key, provider, etc. You can use it to display relevant users
           data as in example below:
@@ -44,8 +44,7 @@ export const Account = () => {
         <pre>
           <code className={'language-javascript'}>
             {`const UserAccount = () => {
-  const clickRef = useClickRef()
-  const activeAccount = clickRef?.getActiveAccount()
+  const activeAccount = window.csprclick.getActiveAccount()
     return (
       <table>
         <tr><td>Public key:</td><td>{activeAccount.public_key}</td></tr>

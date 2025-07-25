@@ -11,21 +11,20 @@ export const UseClickRefHook = () => {
     <>
       <Section>
         <span>
-          This is the bridge between your app and CSPR.click SDK. Use <code>useClickRef()</code> to
-          get a reference to the CSPR.click SDK instance. This is the only way to communicate with
-          CSPR.click API. By calling CSPR.click API, through <code>useClickRef()</code>, you&apos;ll
+          Use CDN link to download whole set of CSPR.click functionality. then you can use <code>window.csprclick</code> to communicate with
+          CSPR.click API. By calling CSPR.click API, through <code>window.csprclick</code>, you&apos;ll
           have an access to all necessary data and possibility to request any available operation.
         </span>
       </Section>
-      <Section>
+        <Section>
         <pre>
           <code className={'language-javascript'}>
-            {`import { useClickRef } from '@make-software/csprclick-ui';
-
-function MyComponent() {
-  const clickRef = useClickRef();
-  ...
-}`}
+            {`
+    <head>
+        ...
+        <script defer="defer" src="https://cdn.cspr.click/ui/v1.9.0/csprclick-client-1.9.0.js"></script>
+        ...
+    </head>`}
           </code>
         </pre>
       </Section>

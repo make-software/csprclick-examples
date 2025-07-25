@@ -108,7 +108,7 @@ export const BuyMeACoffee = () => {
           more information and examples of usage.
         </span>
         <span>
-          Next, call <code>clickRef.send()</code> method. CSPR.click will request the user to sign
+          Next, call <code>window.csprclick.send()</code> method. CSPR.click will request the user to sign
           the transaction in the active wallet and then will send the transaction to a Casper node
           for processing it.
         </span>

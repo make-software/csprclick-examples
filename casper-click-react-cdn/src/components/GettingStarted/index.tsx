@@ -1,4 +1,4 @@
-import { Account, BuyMeACoffee, CustomMenuItems, Section, UseClickRefHook } from './components';
+import { Account, BuyMeACoffee, Section, UseClickRefHook } from './components';
 import Container from "../container.tsx";
 
 export const LandingBrief = () => {
@@ -53,6 +53,7 @@ export const LandingBrief = () => {
               event.preventDefault();
               // @ts-ignore
                 window.csprclick.signIn();
+                window.location.reload();
             }}
           >
             {' '}
@@ -81,13 +82,10 @@ export const SignedInBrief = () => {
       <Section>
         <ol type="1">
           <li>
-            <a href="#useRef">useClickRef hook</a>
+            <a href="#useRef">CDN link</a>
           </li>
           <li>
             <a href="#account">Get your user´s account and update your app</a>
-          </li>
-          <li>
-            <a href="#customising">Customize the account menu</a>
           </li>
           <li>
             <a href="#buyCoffee">Buy Alice a coffee on testnet</a>
@@ -98,8 +96,6 @@ export const SignedInBrief = () => {
       <UseClickRefHook />
       <h3 id="account">🆔 Get access to your user account</h3>
       <Account />
-      <h3 id="customising">🔧 Customize the account menu</h3>
-      <CustomMenuItems />
       <h3 id="buyCoffee">☕ Buy Alice a coffee on testnet</h3>
       <BuyMeACoffee />
       <h3>🔥 Happy hacking!</h3>
