@@ -40,7 +40,7 @@ export const StyledSvgIcon = styled.div`
 
 // Responsive wrapper
 export const StyledWrapper = styled.div`
-  width: 100%;
+  //width: 100%;
   max-width: 540px;
   padding: 0 12px;
   margin: 0 auto;

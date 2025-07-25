@@ -9,12 +9,16 @@ interface SectionProps {
 export const Section = styled.div<SectionProps>`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  
   margin: 0 0 24px;
   background-color: ${({withbackground}) => withbackground ? colors.sectionBackground : 'unset'};
   padding: ${({withbackground}) => (withbackground ? '20px' : '0')};
   border:${({border}) => (border ? '1px solid' : 'none')};
   border-color: ${() => colors.contentPrimary};
+
+    @media (min-width: ${'768px'}) {
+        width: 100%;
+    }
 
   /* h2 styles */
   h2 {
