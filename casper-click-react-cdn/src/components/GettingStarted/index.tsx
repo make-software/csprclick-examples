@@ -51,7 +51,6 @@ export const LandingBrief = () => {
           <b
             onClick={(event) => {
               event.preventDefault();
-              // @ts-ignore
                 window.csprclick.signIn();
                 window.location.reload();
             }}

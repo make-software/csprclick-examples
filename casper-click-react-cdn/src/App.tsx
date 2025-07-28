@@ -18,7 +18,6 @@ function App() {
 
         useEffect(() => {
             const fetchData = async () => {
-                // @ts-ignore
                 const data = await window.csprclick.getActiveAccount();
                 setActiveAccount(data);
             }

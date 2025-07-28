@@ -4,7 +4,6 @@ import Prism from 'prismjs';
 import { SpanTruncated, StyledTD } from './BuyMeACoffee';
 
 const UserAccount = () => {
-  // @ts-ignore
     const clickRef = window.csprclick;
   const activeAccount = clickRef?.getActiveAccount();
   return (

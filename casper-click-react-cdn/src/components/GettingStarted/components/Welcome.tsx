@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import desktopBgImage from '../../../bg-desktop-full.jpg';
-import mobileBgImage from '../../../bg-mobile-full.jpg';
+import desktopBgImage from '../../../assets/bg-desktop-full.jpg' ;
+import mobileBgImage from '../../../assets/bg-mobile-full.jpg';
 
 // Breakpoints
 const breakpoints = {

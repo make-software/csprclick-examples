@@ -45,7 +45,6 @@ export const BuyMeACoffee = () => {
   const [deployHash, setDeployHash] = useState<string | undefined>(undefined);
   const recipientPk = '0203596b49460de7900614b5e25a1fa1861b3eb944c42bea18fc7506b220fd4d9d61';
 
-  // @ts-ignore
   const clickRef = window.csprclick;
   const activeAccount = clickRef?.getActiveAccount();
 
