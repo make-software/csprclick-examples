@@ -15,6 +15,20 @@ const GettingStartedContainer = styled.div`
 `;
 function App() {
     const [activeAccount, setActiveAccount] = useState<any>(null);
+    useEffect(() => {
+        window.csprclick?.on('csprclick:signed_in', async (evt: any) => {
+            await setActiveAccount(evt.account);
+        });
+        window.csprclick?.on('csprclick:switched_account', async (evt: any) => {
+            await setActiveAccount(evt.account);
+        });
+        window.csprclick?.on('csprclick:signed_out', async (evt: any) => {
+            setActiveAccount(null);
+        });
+        window.csprclick?.on('csprclick:disconnected', async (evt: any) => {
+            setActiveAccount(null);
+        });
+    }, [window.csprclick?.on]);
 
         useEffect(() => {
             const fetchData = async () => {
@@ -22,7 +36,7 @@ function App() {
                 setActiveAccount(data);
             }
             fetchData().catch(console.error);
-        }, [])
+        }, []);
 
     return (
         <Container>
