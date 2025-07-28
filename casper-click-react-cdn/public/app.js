@@ -50,22 +50,3 @@ const clickSDKOptions = {
     appId: 'csprclick-template',
     providers: ['casper-wallet', 'ledger', 'metamask-snap'],
 };
-
-window.addEventListener('csprclick:loaded', () => {
-    window.csprclick.on('csprclick:signed_in', async (evt) => {
-        console.log("csprclick:signed_in", evt);
-        document.getElementById('events').textContent += `csprclick:signed_in -> ${JSON.stringify(evt)}\n`;
-    });
-    window.csprclick.on('csprclick:switched_account', async (evt) => {
-        console.log("csprclick:switched_account", evt);
-        document.getElementById('events').textContent += `csprclick:switched_account -> ${JSON.stringify(evt)}\n`;
-    });
-    window.csprclick.on('csprclick:signed_out', async (evt) => {
-        console.log("csprclick:signed_out", evt);
-        document.getElementById('events').textContent += `csprclick:signed_out -> ${JSON.stringify(evt)}\n`;
-    });
-    window.csprclick.on('csprclick:disconnected', async (evt) => {
-        console.log("csprclick:disconnected", evt);
-        document.getElementById('events').textContent += `csprclick:disconnected -> ${JSON.stringify(evt)}\n`;
-    });
-});
