@@ -22,10 +22,10 @@ function App() {
         window.csprclick?.on('csprclick:switched_account', async (evt: any) => {
             await setActiveAccount(evt.account);
         });
-        window.csprclick?.on('csprclick:signed_out', async (evt: any) => {
+        window.csprclick?.on('csprclick:signed_out', async () => {
             setActiveAccount(null);
         });
-        window.csprclick?.on('csprclick:disconnected', async (evt: any) => {
+        window.csprclick?.on('csprclick:disconnected', async () => {
             setActiveAccount(null);
         });
     }, [window.csprclick?.on]);
