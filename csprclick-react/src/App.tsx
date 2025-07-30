@@ -28,6 +28,7 @@ function App() {
   };
 
   useEffect(() => {
+    const scriptId = 'csprclick-script';
     checkCsprclickLoaded()
       .then(() => {
         window.csprclick?.on('csprclick:signed_in', async (evt: any) => {
@@ -44,10 +45,6 @@ function App() {
         });
       })
       .catch((er) => console.log('csprclick is not loaded', er));
-  }, [window.csprclick?.on]);
-
-  useEffect(() => {
-    const scriptId = 'csprclick-script';
 
     if (!document.getElementById(scriptId)) {
       const script = document.createElement('script');
