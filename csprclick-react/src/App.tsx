@@ -21,10 +21,10 @@ function App() {
 
     const addListeners = () => {
       window.csprclick?.on('csprclick:signed_in', async (evt: any) => {
-        await setActiveAccount(evt.account);
+        setActiveAccount(evt.account);
       });
       window.csprclick?.on('csprclick:switched_account', async (evt: any) => {
-        await setActiveAccount(evt.account);
+        setActiveAccount(evt.account);
       });
       window.csprclick?.on('csprclick:signed_out', async () => {
         setActiveAccount(null);
@@ -32,7 +32,7 @@ function App() {
       window.csprclick?.on('csprclick:disconnected', async () => {
         setActiveAccount(null);
       });
-      window.csprclick.on('csprclick:unsolicited_account_change', async (evt: any) => {
+      window.csprclick?.on('csprclick:unsolicited_account_change', async (evt: any) => {
         window.csprclick.signInWithAccount(evt.account);
       });
     };
@@ -45,16 +45,10 @@ function App() {
       document.head.appendChild(script);
     }
 
-    const fetchData = async () => {
-      const account = await window.csprclick.getActiveAccount();
-      setActiveAccount(account);
-    };
-
     window.addEventListener('csprclick:loaded', () => {
       addListeners();
-      fetchData().catch((error) => console.error(error));
     });
-  }, [window.csprclick?.on]);
+  }, []);
 
   return (
     <Container>
