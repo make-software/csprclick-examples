@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { makeTransferTransaction } from './transfer-deploy';
 import Prism from 'prismjs';
@@ -52,7 +52,7 @@ export const BuyMeACoffee = () => {
     Prism.highlightAll();
   }, []);
 
-  const handleSignTransaction = (evt: any) => {
+  const handleSignTransaction = (evt:React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
     const sender = activeAccount?.public_key?.toLowerCase() || '';
     const transaction = makeTransferTransaction(
@@ -177,7 +177,7 @@ export const BuyMeACoffee = () => {
               <td colSpan={2}>
                 {activeAccount?.public_key && (
                     <>
-                      <button onClick={(evt) => handleSignTransaction(evt)}>
+                      <button onClick={(evt: React.MouseEvent<HTMLButtonElement>) => handleSignTransaction(evt)}>
                         <StyledTitle>Sign transaction</StyledTitle>
                       </button>
                     </>

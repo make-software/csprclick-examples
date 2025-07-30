@@ -14,7 +14,7 @@ const onThemeChanged =  (theme) => {
 
 const csprClickDocsMenuItem = {
     label: 'CSPR.click docs',
-    icon: './csprclick-icon.svg',
+    icon: './csprclick-docs-icon.svg',
     badge: { title: 'New', variation: 'green' },
     onClick: () => { window.open('https://docs.cspr.click', '_blank'); },
 };
