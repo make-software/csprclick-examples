@@ -15,6 +15,7 @@ const GettingStartedContainer = styled.div`
 `;
 function App() {
     const [activeAccount, setActiveAccount] = useState<any>(null);
+
     useEffect(() => {
         window.csprclick?.on('csprclick:signed_in', async (evt: any) => {
             await setActiveAccount(evt.account);
@@ -30,13 +31,40 @@ function App() {
         });
     }, [window.csprclick?.on]);
 
-        useEffect(() => {
-            const fetchData = async () => {
-                const data = await window.csprclick.getActiveAccount();
-                setActiveAccount(data);
+
+
+    useEffect(() => {
+        const scriptId = "csprclick-script";
+
+        if (!document.getElementById(scriptId)) {
+            const script = document.createElement("script");
+            script.id = scriptId;
+            script.src = "https://cdn.cspr.click/ui/v1.9.0/csprclick-client-1.9.0.js";
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+
+        const checkCsprclickLoaded = () => {
+            return new Promise<void>((resolve) => {
+                const interval = setInterval(() => {
+                    if (window.csprclick) {
+                        clearInterval(interval);
+                        resolve();
+                    }
+                }, 50);
+            });
+        };
+
+        const fetchData = async () => {
+            await checkCsprclickLoaded();
+            if (window.csprclick) {
+                const account = await window.csprclick.getActiveAccount();
+                setActiveAccount(account);
             }
-            fetchData().catch(console.error);
-        }, []);
+        };
+
+        fetchData().catch(console.error);
+    }, []);
 
     return (
         <Container>
