@@ -1,5 +1,5 @@
 import { Account, BuyMeACoffee, Section, UseClickRefHook } from './components';
-import Container from "../container.tsx";
+import Container from '../container.tsx';
 
 export const LandingBrief = () => {
   return (
@@ -51,8 +51,8 @@ export const LandingBrief = () => {
           <b
             onClick={(event) => {
               event.preventDefault();
-                window.csprclick.signIn();
-                window.location.reload();
+              window.csprclick.signIn();
+              window.location.reload();
             }}
           >
             {' '}

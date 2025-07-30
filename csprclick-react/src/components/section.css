@@ -1,87 +1,87 @@
 .section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 0 24px;
 }
 
 /* Background and padding when enabled */
 .section.with-background {
-    background-color: var(--sectionBackground);
-    padding: 20px;
+  background-color: var(--sectionBackground);
+  padding: 20px;
 }
 
 /* Border when enabled */
 .section.with-border {
-    border: 1px solid var(--contentPrimary);
+  border: 1px solid var(--contentPrimary);
 }
 
 /* Headings */
 .section h2 {
-    margin: 0 0 16px;
-    color: var(--contentPrimary);
+  margin: 0 0 16px;
+  color: var(--contentPrimary);
 }
 
 .section h2 span {
-    font-weight: 300;
-    margin-left: 16px;
+  font-weight: 300;
+  margin-left: 16px;
 }
 
 .section h3 {
-    margin: 0 0 16px;
-    color: var(--contentPrimary);
+  margin: 0 0 16px;
+  color: var(--contentPrimary);
 }
 
 .section h3 span {
-    font-family: var(--fontMono);
-    font-weight: 300;
-    margin-left: 16px;
+  font-family: var(--fontMono);
+  font-weight: 300;
+  margin-left: 16px;
 }
 
 .section h5 {
-    margin: 0;
-    font-family: var(--fontMono);
-    color: var(--contentPrimary);
+  margin: 0;
+  font-family: var(--fontMono);
+  color: var(--contentPrimary);
 }
 
 /* Span & links inside */
 .section span {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .section span:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .section span a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 /* Table */
 .section table {
-    margin-left: 30px;
-    font-size: 14px;
-    color: var(--contentPrimary);
+  margin-left: 30px;
+  font-size: 14px;
+  color: var(--contentPrimary);
 }
 
 /* Buttons */
 .section button {
-    cursor: pointer;
-    margin-top: 24px;
-    font-size: 14px;
-    width: 176px;
-    height: 24px;
+  cursor: pointer;
+  margin-top: 24px;
+  font-size: 14px;
+  width: 176px;
+  height: 24px;
 }
 
 /* Button + link */
 .section button + a {
-    margin-top: 12px;
-    text-decoration: none;
-    color: var(--contentPrimary);
+  margin-top: 12px;
+  text-decoration: none;
+  color: var(--contentPrimary);
 }
 
 .section button + a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }

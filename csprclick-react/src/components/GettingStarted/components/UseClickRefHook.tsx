@@ -11,12 +11,13 @@ export const UseClickRefHook = () => {
     <>
       <Section>
         <span>
-          Use CDN link to download whole set of CSPR.click functionality. then you can use <code>window.csprclick</code> to communicate with
-          CSPR.click API. By calling CSPR.click API, through <code>window.csprclick</code>, you&apos;ll
-          have an access to all necessary data and possibility to request any available operation.
+          Use CDN link to download whole set of CSPR.click functionality. then you can use{' '}
+          <code>window.csprclick</code> to communicate with CSPR.click API. By calling CSPR.click
+          API, through <code>window.csprclick</code>, you&apos;ll have an access to all necessary
+          data and possibility to request any available operation.
         </span>
       </Section>
-        <Section>
+      <Section>
         <pre>
           <code className={'language-javascript'}>
             {`

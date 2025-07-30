@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { colors } from "./colors.ts";
+import { colors } from './colors.ts';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-    text-align: left;
+  text-align: left;
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
@@ -83,16 +83,16 @@ const Container = styled.div`
       margin-top: 5px;
 
       a:hover {
-        color: #294ACC;
+        color: #294acc;
       }
     }
   }
 
   /* Unordered list */
   ul {
-      li {
-          margin-top: 5px;
-      }
+    li {
+      margin-top: 5px;
+    }
   }
 `;
 

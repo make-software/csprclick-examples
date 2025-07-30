@@ -1,24 +1,25 @@
 import styled from 'styled-components';
-import { colors } from "../../colors.ts";
+import { colors } from '../../colors.ts';
 
 interface SectionProps {
-    border?: boolean;
-    withbackground?: boolean;
+  border?: boolean;
+  withbackground?: boolean;
 }
 
 export const Section = styled.div<SectionProps>`
   display: flex;
   flex-direction: column;
-  
+
   margin: 0 0 24px;
-  background-color: ${({withbackground}) => withbackground ? colors.sectionBackground : 'unset'};
-  padding: ${({withbackground}) => (withbackground ? '20px' : '0')};
-  border:${({border}) => (border ? '1px solid' : 'none')};
+  background-color: ${({ withbackground }) =>
+    withbackground ? colors.sectionBackground : 'unset'};
+  padding: ${({ withbackground }) => (withbackground ? '20px' : '0')};
+  border: ${({ border }) => (border ? '1px solid' : 'none')};
   border-color: ${() => colors.contentPrimary};
 
-    @media (min-width: ${'768px'}) {
-        width: 100%;
-    }
+  @media (min-width: ${'768px'}) {
+    width: 100%;
+  }
 
   /* h2 styles */
   h2 {
@@ -37,7 +38,7 @@ export const Section = styled.div<SectionProps>`
     color: ${() => colors.contentPrimary};
 
     span {
-        font-family: 'Mona Sans Expanded', sans-serif;
+      font-family: 'Mona Sans Expanded', sans-serif;
       font-weight: 300;
       margin-left: 16px;
     }
@@ -46,7 +47,7 @@ export const Section = styled.div<SectionProps>`
   /* h5 styles */
   h5 {
     margin: 0;
-      font-family: 'Mona Sans Expanded', sans-serif;
+    font-family: 'Mona Sans Expanded', sans-serif;
     color: ${() => colors.contentPrimary};
   }
 
@@ -92,20 +93,20 @@ export const Section = styled.div<SectionProps>`
     }
   }
 
-    ol {
-        color: ${() => colors.contentBlue};
+  ol {
+    color: ${() => colors.contentBlue};
     li {
-        margin-top: 5px;
-    a { 
+      margin-top: 5px;
+      a {
         &:hover {
-            color: #294ACC
-        } 
-    } 
+          color: #294acc;
+        }
+      }
     }
-} 
-    ul { 
-        li {
-            margin-top: 5px
-        } 
+  }
+  ul {
+    li {
+      margin-top: 5px;
     }
+  }
 `;

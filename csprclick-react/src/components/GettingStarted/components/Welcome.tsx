@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import desktopBgImage from '../../../assets/bg-desktop-full.jpg' ;
+import desktopBgImage from '../../../assets/bg-desktop-full.jpg';
 import mobileBgImage from '../../../assets/bg-mobile-full.jpg';
 
 // Breakpoints
 const breakpoints = {
-    sm: '768px',
-    md: '1024px',
+  sm: '768px',
+  md: '1024px'
 };
 
 // Container with background image
 export const Container = styled.div`
-  background-image: url("${mobileBgImage}");
+  background-image: url('${mobileBgImage}');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
@@ -18,7 +18,7 @@ export const Container = styled.div`
   width: 100%;
 
   @media (min-width: ${breakpoints.sm}) {
-    background-image: url("${desktopBgImage}");
+    background-image: url('${desktopBgImage}');
     height: 624px;
   }
 `;

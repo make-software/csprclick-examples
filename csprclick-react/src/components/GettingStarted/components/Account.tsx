@@ -4,7 +4,7 @@ import Prism from 'prismjs';
 import { SpanTruncated, StyledTD } from './BuyMeACoffee';
 
 const UserAccount = () => {
-    const clickRef = window.csprclick;
+  const clickRef = window.csprclick;
   const activeAccount = clickRef?.getActiveAccount();
   return (
     <table>
@@ -33,8 +33,8 @@ export const Account = () => {
     <>
       <Section>
         <span>
-          Use <code>window.csprclick</code> to get a reference to the CSPR.click SDK instance.
-          With this instance you easily can get an access to user&apos;s active account with all
+          Use <code>window.csprclick</code> to get a reference to the CSPR.click SDK instance. With
+          this instance you easily can get an access to user&apos;s active account with all
           information: such as public key, provider, etc. You can use it to display relevant users
           data as in example below:
         </span>

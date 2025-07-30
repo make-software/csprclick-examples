@@ -6,7 +6,6 @@
   background-color: #181d40;
 }
 
-
 #csprclick-ui {
   max-width: 960px;
   margin: 0 auto;
@@ -14,6 +13,4 @@
   @media (max-width: 1024px) {
     padding: 0 12px;
   }
-
-
 }

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { makeTransferTransaction } from './transfer-deploy';
 import Prism from 'prismjs';
-import {Section} from './Section';
-import { colors } from "../../colors.ts";
+import { Section } from './Section';
+import { colors } from '../../colors.ts';
 
 export const StyledTD = styled.td`
   font-weight: 600;
@@ -13,7 +13,7 @@ export const StyledTD = styled.td`
 
 export const SpanTruncated = styled.span`
   display: inline-block;
-  font-family: "JetBrains Mono", monospace;
+  font-family: 'JetBrains Mono', monospace;
   width: 150px;
   white-space: nowrap;
   overflow: hidden;
@@ -52,14 +52,14 @@ export const BuyMeACoffee = () => {
     Prism.highlightAll();
   }, []);
 
-  const handleSignTransaction = (evt:React.MouseEvent<HTMLButtonElement>) => {
+  const handleSignTransaction = (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
     const sender = activeAccount?.public_key?.toLowerCase() || '';
     const transaction = makeTransferTransaction(
-        sender,
-        recipientPk,
-        '50' + '000000000',
-        clickRef.chainName!
+      sender,
+      recipientPk,
+      '50' + '000000000',
+      clickRef.chainName!
     );
     console.log('TRANSACTION', transaction);
     signAndSend(transaction as object, sender);
@@ -68,58 +68,60 @@ export const BuyMeACoffee = () => {
   const signAndSend = (tbs: object, sender: string) => {
     const onStatusUpdate = (status: string, data: any) => {
       console.log('STATUS UPDATE', status, data);
-      if(status === 'sent')
-        setWaitingResponse(true);
+      if (status === 'sent') setWaitingResponse(true);
     };
 
     clickRef
-        ?.send(tbs, sender, onStatusUpdate)
-        .then((res: any) => {
-          setWaitingResponse(false);
-          if (res?.transactionHash) {
-            setTransactionHash(res.transactionHash);
-            alert('Transaction sent successfully: ' + res.transactionHash +
-                '\n Status: ' +
-                res.status +
-                '\n Timestamp: ' +
-                res.csprCloudTransaction.timestamp);
-          } else if (res?.cancelled) {
-            alert('Sign cancelled');
-          } else {
-            alert('Error in send(): ' + res?.error + '\n' + res?.errorData);
-          }
-        })
-        .catch((err: any) => {
-          alert('Error: ' + err);
-          throw err;
-        });
+      ?.send(tbs, sender, onStatusUpdate)
+      .then((res: any) => {
+        setWaitingResponse(false);
+        if (res?.transactionHash) {
+          setTransactionHash(res.transactionHash);
+          alert(
+            'Transaction sent successfully: ' +
+              res.transactionHash +
+              '\n Status: ' +
+              res.status +
+              '\n Timestamp: ' +
+              res.csprCloudTransaction.timestamp
+          );
+        } else if (res?.cancelled) {
+          alert('Sign cancelled');
+        } else {
+          alert('Error in send(): ' + res?.error + '\n' + res?.errorData);
+        }
+      })
+      .catch((err: any) => {
+        alert('Error: ' + err);
+        throw err;
+      });
   };
 
   return (
-      <>
-        <Section>
+    <>
+      <Section>
         <span>
           Your app will need to send transactions to Casper. Let&apos;s illustrate how to do it
           buying a coffee for Alice with testnet CSPR tokens.
         </span>
-          <span>
-          First, build a transfer transaction. The <code>casper-js-sdk</code> is available in
-          this template to do so. Refer to the official{' '}
-            <a href={'https://casper-ecosystem.github.io/casper-js-sdk/'}>SDK documentation</a> for
+        <span>
+          First, build a transfer transaction. The <code>casper-js-sdk</code> is available in this
+          template to do so. Refer to the official{' '}
+          <a href={'https://casper-ecosystem.github.io/casper-js-sdk/'}>SDK documentation</a> for
           more information and examples of usage.
         </span>
-          <span>
-          Next, call <code>window.csprclick.send()</code> method. CSPR.click will request the user to sign
-          the transaction in the active wallet and then will send the transaction to a Casper node
-          for processing it.
+        <span>
+          Next, call <code>window.csprclick.send()</code> method. CSPR.click will request the user
+          to sign the transaction in the active wallet and then will send the transaction to a
+          Casper node for processing it.
         </span>
-          <span>
+        <span>
           Notice in the example that your application must handle different possible responses. Your
-          app may show a success message with the transaction hash when the transaction has been sent,
-          but react appropriately when the user rejects or the node reject the transaction.
+          app may show a success message with the transaction hash when the transaction has been
+          sent, but react appropriately when the user rejects or the node reject the transaction.
         </span>
-        </Section>
-        <Section>
+      </Section>
+      <Section>
         <pre>
           <code className={'language-javascript'}>
             {`const handleSignTransaction = (evt: any) => {
@@ -151,10 +153,10 @@ export const BuyMeACoffee = () => {
 `}
           </code>
         </pre>
-        </Section>
-        <Section withbackground>
-          <table>
-            <tbody>
+      </Section>
+      <Section withbackground>
+        <table>
+          <tbody>
             <tr>
               <StyledTD>Send:</StyledTD>
               <td>50 CSPR</td>
@@ -176,30 +178,34 @@ export const BuyMeACoffee = () => {
             <tr>
               <td colSpan={2}>
                 {activeAccount?.public_key && (
-                    <>
-                      <button onClick={(evt: React.MouseEvent<HTMLButtonElement>) => handleSignTransaction(evt)}>
-                        <StyledTitle>Sign transaction</StyledTitle>
-                      </button>
-                    </>
+                  <>
+                    <button
+                      onClick={(evt: React.MouseEvent<HTMLButtonElement>) =>
+                        handleSignTransaction(evt)
+                      }
+                    >
+                      <StyledTitle>Sign transaction</StyledTitle>
+                    </button>
+                  </>
                 )}
               </td>
             </tr>
-            </tbody>
-          </table>
+          </tbody>
+        </table>
 
-          {transactionHash && (
-              <a
-                  href={`${clickRef?.appSettings?.csprlive_url}deploy/${transactionHash}`}
-                  target="_blank"
-                  rel="noreferrer"
-              >
-                Check transfer status on CSPR.live
-              </a>
-          )}
-          {waitingResponse && (
-              <span className='listening-notice'>Listening for transaction processing messages...</span>
-          )}
-        </Section>
-      </>
+        {transactionHash && (
+          <a
+            href={`${clickRef?.appSettings?.csprlive_url}deploy/${transactionHash}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Check transfer status on CSPR.live
+          </a>
+        )}
+        {waitingResponse && (
+          <span className="listening-notice">Listening for transaction processing messages...</span>
+        )}
+      </Section>
+    </>
   );
 };
