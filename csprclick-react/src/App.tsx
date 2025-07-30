@@ -16,19 +16,34 @@ const GettingStartedContainer = styled.div`
 function App() {
   const [activeAccount, setActiveAccount] = useState<any>(null);
 
+  const checkCsprclickLoaded = () => {
+    return new Promise<void>((resolve) => {
+      const interval = setInterval(() => {
+        if (window.csprclick) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, 50);
+    });
+  };
+
   useEffect(() => {
-    window.csprclick?.on('csprclick:signed_in', async (evt: any) => {
-      await setActiveAccount(evt.account);
-    });
-    window.csprclick?.on('csprclick:switched_account', async (evt: any) => {
-      await setActiveAccount(evt.account);
-    });
-    window.csprclick?.on('csprclick:signed_out', async () => {
-      setActiveAccount(null);
-    });
-    window.csprclick?.on('csprclick:disconnected', async () => {
-      setActiveAccount(null);
-    });
+    checkCsprclickLoaded()
+      .then(() => {
+        window.csprclick?.on('csprclick:signed_in', async (evt: any) => {
+          await setActiveAccount(evt.account);
+        });
+        window.csprclick?.on('csprclick:switched_account', async (evt: any) => {
+          await setActiveAccount(evt.account);
+        });
+        window.csprclick?.on('csprclick:signed_out', async () => {
+          setActiveAccount(null);
+        });
+        window.csprclick?.on('csprclick:disconnected', async () => {
+          setActiveAccount(null);
+        });
+      })
+      .catch((er) => console.log('csprclick is not loaded', er));
   }, [window.csprclick?.on]);
 
   useEffect(() => {
@@ -42,27 +57,17 @@ function App() {
       document.head.appendChild(script);
     }
 
-    const checkCsprclickLoaded = () => {
-      return new Promise<void>((resolve) => {
-        const interval = setInterval(() => {
-          if (window.csprclick) {
-            clearInterval(interval);
-            resolve();
-          }
-        }, 50);
-      });
-    };
-
     const fetchData = async () => {
-      await checkCsprclickLoaded();
-      if (window.csprclick) {
-        const account = await window.csprclick.getActiveAccount();
-        setActiveAccount(account);
-      }
+      checkCsprclickLoaded()
+        .then(async () => {
+          const account = await window.csprclick.getActiveAccount();
+          setActiveAccount(account);
+        })
+        .catch((er) => console.log('Error while fetching account', er));
     };
 
-    fetchData().catch(console.error);
-  }, []);
+    fetchData().catch((error) => console.error(error));
+  }, [window.csprclick?.on]);
 
   return (
     <Container>
