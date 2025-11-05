@@ -1,0 +1,45 @@
+
+body {
+  margin: 0px;
+}
+  
+#csprclick-ui {
+  background-color: rgb(24, 29, 64);;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
+}
+
+.dark #csprclick-ui {
+  background-color: rgb(19, 25, 51);;
+}
+
+#csprclick-top-bar > div {
+  padding: 0 12px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+#content {
+  max-width: 1024px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 0;
+}
+
+.dark #content {
+  background-color: #0F1429;
+}
+
+#events {
+  margin-top: 12px;
+  font-family: 'JetBrains Mono';
+  line-height: 1.5;
+  overflow-x: scroll;
+}
+
+.dark #events {
+  color: #d0d0d0;
+}
