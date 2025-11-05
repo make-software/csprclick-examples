@@ -48,7 +48,11 @@ const clickUIOptions = {
 const clickSDKOptions = {
   appName: 'CSPR.click demo',
   appId: 'csprclick-template',
-  providers: ['casper-wallet', 'ledger', 'metamask-snap'],
+  providers: ['casper-wallet', 'ledger', 'metamask-snap', 'walletconnect'],
+  walletConnect: {
+    relayUrl: 'wss://relay.walletconnect.com',
+    projectId: 'e8e8111e46f4cd44143fe05a51b49fb8'
+  }
 };
 
 window.addEventListener('csprclick:loaded', () => {
