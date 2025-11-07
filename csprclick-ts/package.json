@@ -12,6 +12,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@make-software/csprclick-core-types": "file:../../casper-click-websdk/dist/types"
+    "@make-software/csprclick-core-types": "^1.12.0"
   }
 }
