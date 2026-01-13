@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import desktopBgImage from '../../../assets/bg-desktop-full.jpg';
 import mobileBgImage from '../../../assets/bg-mobile-full.jpg';
+import { FlexRow } from "@make-software/cspr-design";
 
 // Breakpoints
 const breakpoints = {
@@ -23,21 +24,6 @@ export const Container = styled.div`
   }
 `;
 
-// Styled SVG Icon wrapper
-export const StyledSvgIcon = styled.div`
-  svg {
-    height: 60px;
-    width: 60px;
-  }
-
-  @media (min-width: ${breakpoints.sm}) {
-    svg {
-      height: 80px;
-      width: 80px;
-    }
-  }
-`;
-
 // Responsive wrapper
 export const StyledWrapper = styled.div`
   //width: 100%;
@@ -52,11 +38,6 @@ export const StyledWrapper = styled.div`
   @media (min-width: ${breakpoints.md}) {
     max-width: 960px;
   }
-`;
-
-// Info container
-export const InfoContainer = styled.div`
-  display: flex;
 `;
 
 // Responsive positioning
@@ -129,13 +110,13 @@ export const Welcome = () => {
   return (
     <Container>
       <StyledWrapper>
-        <InfoContainer>
+        <FlexRow>
           <StyledInfo>
             <GreetingText>Welcome to CSPR.click</GreetingText>
             <KillerAppText>Your starting point to develop the next web3 killer app.</KillerAppText>
             <LearnMoreButton onClick={handleReadMore}>Learn more</LearnMoreButton>
           </StyledInfo>
-        </InfoContainer>
+        </FlexRow>
       </StyledWrapper>
     </Container>
   );

@@ -4,6 +4,7 @@ import { makeTransferTransaction } from './transfer-deploy';
 import Prism from 'prismjs';
 import { Section } from './Section';
 import { colors } from '../../colors.ts';
+import { FlexRow } from '@make-software/cspr-design';
 
 export const StyledTD = styled.td`
   font-weight: 600;
@@ -27,13 +28,6 @@ export const SpanTruncated = styled.span`
   @media (min-width: 1024px) {
     width: 100%;
   }
-`;
-
-export const AccountRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
 `;
 
 export const StyledTitle = styled.div`
@@ -170,9 +164,9 @@ export const BuyMeACoffee = () => {
             <tr>
               <StyledTD>To:</StyledTD>
               <td>
-                <AccountRow>
+                <FlexRow gap={8} align={'center'}>
                   <SpanTruncated>{recipientPk}</SpanTruncated>
-                </AccountRow>
+                </FlexRow>
               </td>
             </tr>
             <tr>

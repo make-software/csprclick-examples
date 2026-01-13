@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@make-software/cspr-design": "^2.0.4",
     "casper-js-sdk": "5.0.5",
     "prismjs": "^1.30.0",
     "react": "^19.1.0",
