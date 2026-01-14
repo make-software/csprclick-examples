@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { makeTransferTransaction } from './transfer-deploy';
 import Prism from 'prismjs';
 import { Section } from './Section';
-import { FlexRow } from '@make-software/cspr-design';
+import { Button, FlexRow, Link } from '@make-software/cspr-design';
 
 export const StyledTD = styled.td`
   font-weight: 600;
@@ -103,7 +103,7 @@ export const BuyMeACoffee = () => {
         <span>
           First, build a transfer transaction. The <code>casper-js-sdk</code> is available in this
           template to do so. Refer to the official{' '}
-          <a href={'https://casper-ecosystem.github.io/casper-js-sdk/'}>SDK documentation</a> for
+          <Link href={'https://casper-ecosystem.github.io/casper-js-sdk/'}>SDK documentation</Link> for
           more information and examples of usage.
         </span>
         <span>
@@ -175,13 +175,13 @@ export const BuyMeACoffee = () => {
               <td colSpan={2}>
                 {activeAccount?.public_key && (
                   <>
-                    <button
+                    <Button
                       onClick={(evt: React.MouseEvent<HTMLButtonElement>) =>
                         handleSignTransaction(evt)
                       }
                     >
                       <StyledTitle>Sign transaction</StyledTitle>
-                    </button>
+                    </Button>
                   </>
                 )}
               </td>
@@ -190,13 +190,12 @@ export const BuyMeACoffee = () => {
         </table>
 
         {transactionHash && (
-          <a
-            href={`${clickRef?.appSettings?.csprlive_url}deploy/${transactionHash}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Check transfer status on CSPR.live
-          </a>
+            <Link
+                href={`${clickRef?.appSettings?.csprlive_url}deploy/${transactionHash}`}
+                target="_blank"
+            >
+              Check transfer status on CSPR.live
+            </Link>
         )}
         {waitingResponse && (
           <span className="listening-notice">Listening for transaction processing messages...</span>
