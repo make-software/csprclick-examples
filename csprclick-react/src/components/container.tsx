@@ -12,14 +12,12 @@ export const Container = styled(FlexColumn)(
             backgroundColor: theme.styleguideColors.backgroundSecondary,
             color: theme.styleguideColors.contentSecondary,
 
-            /* h2 */
             h2: {
                 fontSize: 'calc(12px + 2vmin)',
                 fontWeight: 700,
                 color: theme.styleguideColors.contentPrimary
             },
 
-            /* h3 */
             h3: {
                 fontSize: 'calc(11px + 2vmin)',
                 fontWeight: 500,
@@ -27,7 +25,6 @@ export const Container = styled(FlexColumn)(
                 marginTop: '100px'
             },
 
-            /* h5 */
             h5: {
                 fontSize: 'calc(10px + 2vmin)',
                 fontWeight: 500,
@@ -35,19 +32,16 @@ export const Container = styled(FlexColumn)(
                 textAlign: 'center'
             },
 
-            /* links */
             a: {
                 color: theme.styleguideColors.contentBlue,
                 cursor: 'pointer',
                 textDecoration: 'none'
             },
 
-            /* bold */
             b: {
                 cursor: 'pointer'
             },
 
-            /* span */
             span: {
                 fontSize: '16px',
                 fontWeight: 400,
@@ -55,12 +49,10 @@ export const Container = styled(FlexColumn)(
                 color: theme.styleguideColors.contentPrimary
             },
 
-            /* pre */
             pre: {
                 background: '#2d2d2d'
             },
 
-            /* buttons */
             button: {
                 background: theme.styleguideColors.contentPrimary,
                 color: theme.styleguideColors.fillSecondary,
@@ -73,7 +65,6 @@ export const Container = styled(FlexColumn)(
                 cursor: 'pointer'
             },
 
-            /* ordered list */
             ol: {
                 color: theme.styleguideColors.contentBlue,
 
@@ -88,7 +79,6 @@ export const Container = styled(FlexColumn)(
                 }
             },
 
-            /* unordered list */
             ul: {
                 li: {
                     marginTop: '5px'

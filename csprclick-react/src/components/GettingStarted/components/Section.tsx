@@ -19,10 +19,9 @@ export const Section = styled(FlexColumn)<SectionProps>(
           borderColor: theme.styleguideColors.contentPrimary,
 
           width: {
-            md: '100%' // >= 768px
+            md: '100%'
           },
 
-          /* h2 */
           h2: {
             margin: '0 0 16px',
             color: theme.styleguideColors.contentPrimary,
@@ -33,7 +32,6 @@ export const Section = styled(FlexColumn)<SectionProps>(
             }
           },
 
-          /* h3 */
           h3: {
             margin: '0 0 16px',
             color: theme.styleguideColors.contentPrimary,
@@ -45,14 +43,12 @@ export const Section = styled(FlexColumn)<SectionProps>(
             }
           },
 
-          /* h5 */
           h5: {
             margin: 0,
             fontFamily: 'Mona Sans Expanded, sans-serif',
             color: theme.styleguideColors.contentPrimary
           },
 
-          /* spans & links */
           span: {
             marginBottom: '10px',
 
@@ -67,14 +63,12 @@ export const Section = styled(FlexColumn)<SectionProps>(
             }
           },
 
-          /* table */
           table: {
             marginLeft: '30px',
             fontSize: '14px',
             color: theme.styleguideColors.contentPrimary
           },
 
-          /* button */
           button: {
             cursor: 'pointer',
             marginTop: '24px',
@@ -83,7 +77,6 @@ export const Section = styled(FlexColumn)<SectionProps>(
             height: '36px'
           },
 
-          /* button + link */
           'button + a': {
             marginTop: '12px',
             textDecoration: 'none',
@@ -94,7 +87,6 @@ export const Section = styled(FlexColumn)<SectionProps>(
             }
           },
 
-          /* lists */
           ol: {
             color: theme.styleguideColors.contentBlue,
 
