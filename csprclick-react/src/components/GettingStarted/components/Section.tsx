@@ -1,112 +1,118 @@
 import styled from 'styled-components';
-import { colors } from '../../colors.ts';
+import { FlexColumn } from "@make-software/cspr-design";
 
 interface SectionProps {
   border?: boolean;
   withbackground?: boolean;
 }
 
-export const Section = styled.div<SectionProps>`
-  display: flex;
-  flex-direction: column;
+export const Section = styled(FlexColumn)<SectionProps>(
+    ({ theme, withbackground, border }) =>
+        theme.withMedia({
+          margin: '0 0 24px',
+          backgroundColor: withbackground
+              ? theme.styleguideColors.backgroundPrimary
+              : 'unset',
+          padding: withbackground ? '20px' : '0',
 
-  margin: 0 0 24px;
-  background-color: ${({ withbackground }) =>
-    withbackground ? colors.sectionBackground : 'unset'};
-  padding: ${({ withbackground }) => (withbackground ? '20px' : '0')};
-  border: ${({ border }) => (border ? '1px solid' : 'none')};
-  border-color: ${() => colors.contentPrimary};
+          border: border ? '1px solid' : 'none',
+          borderColor: theme.styleguideColors.contentPrimary,
 
-  @media (min-width: ${'768px'}) {
-    width: 100%;
-  }
+          width: {
+            md: '100%' // >= 768px
+          },
 
-  /* h2 styles */
-  h2 {
-    margin: 0 0 16px;
-    color: ${() => colors.contentPrimary};
+          /* h2 */
+          h2: {
+            margin: '0 0 16px',
+            color: theme.styleguideColors.contentPrimary,
 
-    span {
-      font-weight: 300;
-      margin-left: 16px;
-    }
-  }
+            span: {
+              fontWeight: 300,
+              marginLeft: '16px'
+            }
+          },
 
-  /* h3 styles */
-  h3 {
-    margin: 0 0 16px;
-    color: ${() => colors.contentPrimary};
+          /* h3 */
+          h3: {
+            margin: '0 0 16px',
+            color: theme.styleguideColors.contentPrimary,
 
-    span {
-      font-family: 'Mona Sans Expanded', sans-serif;
-      font-weight: 300;
-      margin-left: 16px;
-    }
-  }
+            span: {
+              fontFamily: 'Mona Sans Expanded, sans-serif',
+              fontWeight: 300,
+              marginLeft: '16px'
+            }
+          },
 
-  /* h5 styles */
-  h5 {
-    margin: 0;
-    font-family: 'Mona Sans Expanded', sans-serif;
-    color: ${() => colors.contentPrimary};
-  }
+          /* h5 */
+          h5: {
+            margin: 0,
+            fontFamily: 'Mona Sans Expanded, sans-serif',
+            color: theme.styleguideColors.contentPrimary
+          },
 
-  /* Span & links inside */
-  span {
-    margin-bottom: 10px;
+          /* spans & links */
+          span: {
+            marginBottom: '10px',
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: 700;
-    }
+            '&:last-child': {
+              marginBottom: 0
+            },
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+            a: {
+              color: 'inherit',
+              textDecoration: 'none',
+              fontWeight: 700
+            }
+          },
 
-  /* Table */
-  table {
-    margin-left: 30px;
-    font-size: 14px;
-    color: ${() => colors.contentPrimary};
-  }
+          /* table */
+          table: {
+            marginLeft: '30px',
+            fontSize: '14px',
+            color: theme.styleguideColors.contentPrimary
+          },
 
-  /* Button */
-  button {
-    cursor: pointer;
-    margin-top: 24px;
-    font-size: 14px;
-    width: 176px;
-    height: 36px;
-  }
+          /* button */
+          button: {
+            cursor: 'pointer',
+            marginTop: '24px',
+            fontSize: '14px',
+            width: '176px',
+            height: '36px'
+          },
 
-  /* Button followed by link */
-  button + a {
-    margin-top: 12px;
-    text-decoration: none;
-    color: ${() => colors.contentPrimary};
+          /* button + link */
+          'button + a': {
+            marginTop: '12px',
+            textDecoration: 'none',
+            color: theme.styleguideColors.contentPrimary,
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+            '&:hover': {
+              textDecoration: 'underline'
+            }
+          },
 
-  ol {
-    color: ${() => colors.contentBlue};
-    li {
-      margin-top: 5px;
-      a {
-        &:hover {
-          color: #294acc;
-        }
-      }
-    }
-  }
-  ul {
-    li {
-      margin-top: 5px;
-    }
-  }
-`;
+          /* lists */
+          ol: {
+            color: theme.styleguideColors.contentBlue,
+
+            li: {
+              marginTop: '5px',
+
+              a: {
+                '&:hover': {
+                  color: theme.colorSpecialCase.blueBanner,
+                }
+              }
+            }
+          },
+
+          ul: {
+            li: {
+              marginTop: '5px'
+            }
+          }
+        })
+);

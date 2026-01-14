@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { makeTransferTransaction } from './transfer-deploy';
 import Prism from 'prismjs';
 import { Section } from './Section';
-import { colors } from '../../colors.ts';
 import { FlexRow } from '@make-software/cspr-design';
 
 export const StyledTD = styled.td`
@@ -30,9 +29,12 @@ export const SpanTruncated = styled.span`
   }
 `;
 
-export const StyledTitle = styled.div`
-  color: ${() => colors.fillSecondary};
-`;
+const StyledTitle = styled(FlexRow)(
+    ({ theme }) =>
+        theme.withMedia({
+          color: theme.styleguideColors.fillSecondary
+        })
+);
 
 export const BuyMeACoffee = () => {
   const [transactionHash, setTransactionHash] = useState<string | undefined>(undefined);
