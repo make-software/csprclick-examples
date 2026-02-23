@@ -21,8 +21,7 @@ const csprClickDocsMenuItem = {
 };
 
 const accountMenuItems = [
-  'ViewAccountOnExplorerMenuItem',
-  'CopyHashMenuItem',
+  'AccountCardMenuItem',
   csprClickDocsMenuItem,
   'BuyCSPRMenuItem'
 ];

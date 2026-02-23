@@ -23,7 +23,7 @@ export const UseClickRefHook = () => {
             {`
     <head>
         ...
-        <script defer="defer" src="https://cdn.cspr.click/ui/v1.9.0/csprclick-client-1.9.0.js"></script>
+        <script defer="defer" src="https://cdn.cspr.click/ui/v1.12.0/csprclick-client-1.12.0.js"></script>
         ...
     </head>`}
           </code>

@@ -1,99 +1,90 @@
 import styled from 'styled-components';
-import { colors } from './colors.ts';
+import { FlexColumn } from "@make-software/cspr-design";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  background-color: ${() => colors.bodyBackgroundColor};
-  color: ${() => colors.contentSecondary};
+export const Container = styled(FlexColumn)(
+    ({ theme }) =>
+        theme.withMedia({
+            textAlign: 'left',
+            width: '100%',
+            minHeight: '100vh',
+            margin: '0 auto',
 
-  /* Headings */
-  h2 {
-    font-size: calc(12px + 2vmin);
-    font-weight: 700;
-    color: ${() => colors.contentPrimary};
-  }
+            backgroundColor: theme.styleguideColors.backgroundSecondary,
+            color: theme.styleguideColors.contentSecondary,
 
-  h3 {
-    font-size: calc(11px + 2vmin);
-    font-weight: 500;
-    color: ${() => colors.contentPrimary};
-    margin-top: 100px;
-  }
+            h2: {
+                fontSize: 'calc(12px + 2vmin)',
+                fontWeight: 700,
+                color: theme.styleguideColors.contentPrimary
+            },
 
-  h5 {
-    font-size: calc(10px + 2vmin);
-    font-weight: 500;
-    color: ${() => colors.contentPrimary};
-    text-align: center;
-  }
+            h3: {
+                fontSize: 'calc(11px + 2vmin)',
+                fontWeight: 500,
+                color: theme.styleguideColors.contentPrimary,
+                marginTop: '100px'
+            },
 
-  /* Links */
-  a {
-    color: ${() => colors.contentBlue};
-    cursor: pointer;
-    text-decoration: none;
-  }
+            h5: {
+                fontSize: 'calc(10px + 2vmin)',
+                fontWeight: 500,
+                color: theme.styleguideColors.contentPrimary,
+                textAlign: 'center'
+            },
 
-  /* Bold text */
-  b {
-    cursor: pointer;
-  }
+            a: {
+                color: theme.styleguideColors.contentBlue,
+                cursor: 'pointer',
+                textDecoration: 'none'
+            },
 
-  /* Span text */
-  span {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: ${() => colors.contentPrimary};
-  }
+            b: {
+                cursor: 'pointer'
+            },
 
-  /* Preformatted text */
-  pre {
-    background: #2d2d2d;
+            span: {
+                fontSize: '16px',
+                fontWeight: 400,
+                lineHeight: '24px',
+                color: theme.styleguideColors.contentPrimary
+            },
 
-    //code {
-    //  color: #ccc;
-    //
-    //}
-  }
+            pre: {
+                background: '#2d2d2d'
+            },
 
-  /* Buttons */
-  button {
-    background: ${() => colors.contentPrimary};
-    color: ${() => colors.fillSecondary};
-    height: 38px;
-    padding: 8px 16px;
-    margin-top: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    cursor: pointer;
-  }
+            button: {
+                background: theme.styleguideColors.contentPrimary,
+                color: theme.styleguideColors.fillSecondary,
+                height: '38px',
+                padding: '8px 16px',
+                marginTop: '20px',
+                fontSize: '14px',
+                fontWeight: 600,
+                lineHeight: '20px',
+                cursor: 'pointer'
+            },
 
-  /* Ordered list */
-  ol {
-    color: ${() => colors.contentBlue};
+            ol: {
+                color: theme.styleguideColors.contentBlue,
 
-    li {
-      margin-top: 5px;
+                li: {
+                    marginTop: '5px',
 
-      a:hover {
-        color: #294acc;
-      }
-    }
-  }
+                    a: {
+                        '&:hover': {
+                            color: theme.colorSpecialCase.blueBanner,
+                        }
+                    }
+                }
+            },
 
-  /* Unordered list */
-  ul {
-    li {
-      margin-top: 5px;
-    }
-  }
-`;
+            ul: {
+                li: {
+                    marginTop: '5px'
+                }
+            }
+        })
+);
 
 export default Container;

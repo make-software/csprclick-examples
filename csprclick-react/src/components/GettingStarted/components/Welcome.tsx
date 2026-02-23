@@ -23,49 +23,22 @@ export const Container = styled.div`
   }
 `;
 
-// Styled SVG Icon wrapper
-export const StyledSvgIcon = styled.div`
-  svg {
-    height: 60px;
-    width: 60px;
-  }
+// Responsive positioning
+export const Content = styled.div`
+  position: relative;
+  top: 120px;
 
-  @media (min-width: ${breakpoints.sm}) {
-    svg {
-      height: 80px;
-      width: 80px;
-    }
-  }
-`;
-
-// Responsive wrapper
-export const StyledWrapper = styled.div`
-  //width: 100%;
   max-width: 540px;
   padding: 0 12px;
   margin: 0 auto;
 
   @media (min-width: ${breakpoints.sm}) {
     max-width: 720px;
+    top: 174px;
   }
 
   @media (min-width: ${breakpoints.md}) {
     max-width: 960px;
-  }
-`;
-
-// Info container
-export const InfoContainer = styled.div`
-  display: flex;
-`;
-
-// Responsive positioning
-export const StyledInfo = styled.div`
-  position: relative;
-  top: 120px;
-
-  @media (min-width: ${breakpoints.sm}) {
-    top: 174px;
   }
 `;
 
@@ -128,15 +101,11 @@ export const Welcome = () => {
 
   return (
     <Container>
-      <StyledWrapper>
-        <InfoContainer>
-          <StyledInfo>
-            <GreetingText>Welcome to CSPR.click</GreetingText>
-            <KillerAppText>Your starting point to develop the next web3 killer app.</KillerAppText>
-            <LearnMoreButton onClick={handleReadMore}>Learn more</LearnMoreButton>
-          </StyledInfo>
-        </InfoContainer>
-      </StyledWrapper>
+      <Content>
+        <GreetingText>Welcome to CSPR.click</GreetingText>
+        <KillerAppText>Your starting point to develop the next web3 killer app.</KillerAppText>
+        <LearnMoreButton onClick={handleReadMore}>Learn more</LearnMoreButton>
+      </Content>
     </Container>
   );
 };

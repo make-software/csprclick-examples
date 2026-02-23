@@ -1,5 +1,7 @@
 import { Account, BuyMeACoffee, Section, UseClickRefHook } from './components';
 import Container from '../container.tsx';
+import { Link } from "@make-software/cspr-design";
+import React from "react";
 
 export const LandingBrief = () => {
   return (
@@ -15,13 +17,12 @@ export const LandingBrief = () => {
         <span>
           Your app can interact with any of them using the same API. CSPR.click takes care of
           everything wallet related. If needed, you can{' '}
-          <a
-            href={'https://docs.cspr.click/core-js-sdk/types#csprclickinitoptions'}
-            target={'_blank'}
-            rel="noreferrer"
-          >
-            modify the list of enabled wallets
-          </a>
+            <Link
+                href={'https://docs.cspr.click/core-js-sdk/types#csprclickinitoptions'}
+                target="_blank"
+            >
+              modify the list of enabled wallets
+            </Link>
           .
         </span>
       </Section>
@@ -33,13 +34,12 @@ export const LandingBrief = () => {
           management of accounts, settings, and future ecosystem-wide functionality.
         </span>
         <span>
-          <a
-            href={'https://docs.cspr.click/ui-sdk/customizing-the-top-bar'}
-            target={'_blank'}
-            rel="noreferrer"
-          >
-            Customize the elements in the top bar
-          </a>{' '}
+            <Link
+                href={'https://docs.cspr.click/ui-sdk/customizing-the-top-bar'}
+                target="_blank"
+            >
+                Customize the elements in the top bar
+            </Link>{' '}
           according to your application requirements. Add and remove settings selectors.
         </span>
       </Section>
@@ -102,23 +102,21 @@ export const SignedInBrief = () => {
         <span>
           Finally! Time to focus on your new project! And, remember, you may find guides and
           examples in{' '}
-          <a
+          <Link
             style={{ textDecoration: 'underline' }}
             href={'https://docs.cspr.click'}
-            target={'_blank'}
-            rel="noreferrer"
+            target="_blank"
           >
-            our documentation
-          </a>
+              our documentation
+          </Link>
           . Or you can reach to us on{' '}
-          <a
-            style={{ textDecoration: 'underline' }}
-            href={'https://t.me/CSPRDevelopers'}
-            target={'_blank'}
-            rel="noreferrer"
-          >
-            telegram
-          </a>
+            <Link
+                style={{ textDecoration: 'underline' }}
+                href={'https://t.me/CSPRDevelopers'}
+                target="_blank"
+            >
+                telegram
+            </Link>
           .
         </span>
       </Section>
