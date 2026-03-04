@@ -1,7 +1,6 @@
 import { Account, BuyMeACoffee, Section, SetupSection } from './components';
 import Container from '../container.tsx';
 import { Link } from "@make-software/cspr-design";
-import React from "react";
 
 export const LandingBrief = () => {
   return (
@@ -18,6 +17,7 @@ export const LandingBrief = () => {
           Your app can interact with any of them using the same API. CSPR.click takes care of
           everything wallet related. If needed, you can{' '}
             <Link
+                color={'primaryBlue'}
                 href={'https://docs.cspr.click/core-js-sdk/types#csprclickinitoptions'}
                 target="_blank"
             >
@@ -34,7 +34,7 @@ export const LandingBrief = () => {
           management of accounts, settings, and future ecosystem-wide functionality.
         </span>
         <span>
-            <Link
+            <Link color={'primaryBlue'}
                 href={'https://docs.cspr.click/ui-sdk/customizing-the-top-bar'}
                 target="_blank"
             >
@@ -102,7 +102,7 @@ export const SignedInBrief = () => {
         <span>
           Finally! Time to focus on your new project! And, remember, you may find guides and
           examples in{' '}
-          <Link
+          <Link color={'primaryBlue'}
             style={{ textDecoration: 'underline' }}
             href={'https://docs.cspr.click'}
             target="_blank"
@@ -110,7 +110,7 @@ export const SignedInBrief = () => {
               our documentation
           </Link>
           . Or you can reach to us on{' '}
-            <Link
+            <Link color={'primaryBlue'}
                 style={{ textDecoration: 'underline' }}
                 href={'https://t.me/CSPRDevelopers'}
                 target="_blank"

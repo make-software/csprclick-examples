@@ -21,7 +21,10 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+      "@make-software/cspr-design": ["./node_modules/@make-software/cspr-design/dist/lib/index.d.ts"]
+      }
+    },
   "include": ["src"]
 }

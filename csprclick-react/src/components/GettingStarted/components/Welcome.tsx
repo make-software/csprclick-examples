@@ -89,7 +89,7 @@ export const Welcome = () => {
       <Content>
         <GreetingText>Welcome to CSPR.click</GreetingText>
         <KillerAppText>Your starting point to develop the next web3 killer app.</KillerAppText>
-        <LearnMoreButton color="primaryRed" width={176} onClick={handleReadMore}>Learn more</LearnMoreButton>
+        <LearnMoreButton color="primaryRed" width={'176'} onClick={handleReadMore}>Learn more</LearnMoreButton>
       </Content>
     </Container>
   );

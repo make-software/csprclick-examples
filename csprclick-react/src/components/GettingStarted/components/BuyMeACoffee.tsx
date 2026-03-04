@@ -103,7 +103,7 @@ export const BuyMeACoffee = () => {
         <span>
           First, build a transfer transaction. The <code>casper-js-sdk</code> is available in this
           template to do so. Refer to the official{' '}
-          <Link href={'https://casper-ecosystem.github.io/casper-js-sdk/'}>SDK documentation</Link> for
+          <Link color={'primaryBlue'} href={'https://casper-ecosystem.github.io/casper-js-sdk/'}>SDK documentation</Link> for
           more information and examples of usage.
         </span>
         <span>
@@ -191,7 +191,7 @@ export const BuyMeACoffee = () => {
         </table>
 
         {transactionHash && (
-            <Link
+            <Link color={'primaryBlue'}
                 href={`${clickRef?.appSettings?.csprlive_url}deploy/${transactionHash}`}
                 target="_blank"
             >
