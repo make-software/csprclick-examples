@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import desktopBgImage from '../../../assets/bg-desktop-full.jpg';
 import mobileBgImage from '../../../assets/bg-mobile-full.jpg';
+import { Button } from "@make-software/cspr-design";
 
 // Breakpoints
 const breakpoints = {
@@ -72,24 +73,8 @@ export const KillerAppText = styled.div`
 `;
 
 // CTA Button
-export const LearnMoreButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 176px;
-  height: 36px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  background-color: #b2332d;
-  font-size: 14px;
-  line-height: 20px;
-  color: #f2f2f2;
+export const LearnMoreButton = styled(Button)`
   margin-top: 32px;
-
-  &:hover {
-    cursor: pointer;
-    background-color: #9f211c;
-  }
 `;
 
 export const Welcome = () => {
@@ -104,7 +89,7 @@ export const Welcome = () => {
       <Content>
         <GreetingText>Welcome to CSPR.click</GreetingText>
         <KillerAppText>Your starting point to develop the next web3 killer app.</KillerAppText>
-        <LearnMoreButton onClick={handleReadMore}>Learn more</LearnMoreButton>
+        <LearnMoreButton color="primaryRed" width={176} onClick={handleReadMore}>Learn more</LearnMoreButton>
       </Content>
     </Container>
   );

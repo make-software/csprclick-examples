@@ -176,6 +176,7 @@ export const BuyMeACoffee = () => {
                 {activeAccount?.public_key && (
                   <>
                     <Button
+                        color={'primaryRed'}
                       onClick={(evt: React.MouseEvent<HTMLButtonElement>) =>
                         handleSignTransaction(evt)
                       }

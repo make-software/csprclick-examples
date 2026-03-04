@@ -1,8 +1,10 @@
+import { ICSPRClickSDK } from '@make-software/csprclick-core-types';
+
 export {};
 
 declare global {
   interface Window {
-    csprclick?: any;
+    csprclick?: ICSPRClickSDK;
   }
 }
 

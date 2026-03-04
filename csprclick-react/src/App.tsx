@@ -48,6 +48,14 @@ function App() {
     window.addEventListener('csprclick:loaded', () => {
       addListeners();
     });
+
+    return () => {
+      window.csprclick?.off('csprclick:signed_in');
+      window.csprclick?.off('csprclick:switched_account');
+      window.csprclick?.off('csprclick:signed_out');
+      window.csprclick?.off('csprclick:disconnected');
+      window.csprclick?.off('csprclick:unsolicited_account_change');
+    };
   }, []);
 
   return (

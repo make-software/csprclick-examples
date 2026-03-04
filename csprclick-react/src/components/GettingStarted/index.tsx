@@ -1,4 +1,4 @@
-import { Account, BuyMeACoffee, Section, UseClickRefHook } from './components';
+import { Account, BuyMeACoffee, Section, SetupSection } from './components';
 import Container from '../container.tsx';
 import { Link } from "@make-software/cspr-design";
 import React from "react";
@@ -92,7 +92,7 @@ export const SignedInBrief = () => {
         </ol>
       </Section>
       <h3 id="useRef">🪝️ CDN link</h3>
-      <UseClickRefHook />
+      <SetupSection />
       <h3 id="account">🆔 Get access to your user account</h3>
       <Account />
       <h3 id="buyCoffee">☕ Buy Alice a coffee on testnet</h3>

@@ -54,7 +54,6 @@ export const Container = styled(FlexColumn)(
             },
 
             button: {
-                background: theme.styleguideColors.contentPrimary,
                 color: theme.styleguideColors.fillSecondary,
                 height: '38px',
                 padding: '8px 16px',
