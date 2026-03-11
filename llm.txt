@@ -1,0 +1,403 @@
+# CSPR.click SDK
+
+CSPR.click is a unified SDK for Casper Network wallet connectivity in web applications.
+
+## Core Features
+- Wallet Aggregator: Single integration for Casper Wallet, Ledger, MetaMask Snap
+- CSPR.cloud Proxy: Frontend API access without backend infrastructure
+- Fiat On-Ramps: Purchase CSPR via card or wire transfer
+
+## Architecture
+- Asynchronous event-driven: Methods return immediately, use event listeners for results
+- Global access via `window.csprclick` after loading
+- Optional UI components: top navigation bar, sign-in button, theme switcher, network selector
+
+---
+
+## Installation
+
+CDN (add before closing </head> tag):
+```html
+<script defer="defer" src="https://cdn.cspr.click/ui/v1.12.0/csprclick-client-1.12.0.js"></script>
+```
+
+React:
+```bash
+npx create-react-app my-casper-app --template @make-software/csprclick-react
+```
+
+---
+
+## Configuration
+
+IMPORTANT: Configuration scripts MUST load BEFORE the CSPR.click CDN script.
+
+HTML container setup:
+```html
+<div id="app">
+  <div id="csprclick-ui"></div>
+  <div id="content"><!-- Your app --></div>
+</div>
+```
+
+UI Options (clickUIOptions):
+```javascript
+const clickUIOptions = {
+  uiContainer: 'csprclick-ui',        // Container ID for CSPR.click UI
+  rootAppElement: '#app',              // Root app selector
+  showTopBar: true,                    // Show navigation bar
+  defaultTheme: 'light',               // 'light' or 'dark'
+  onThemeChanged: (theme) => {},       // Theme change callback
+  accountMenuItems: [                  // Menu items in account dropdown
+    'AccountCardMenuItem',
+    'CopyHashMenuItem',
+    'BuyCSPRMenuItem'
+  ],
+  networkSettings: {
+    networks: ['Mainnet', 'Testnet'],
+    currentNetwork: 'Mainnet',
+    onNetworkSwitch: (network) => window.csprclickUI.setNetwork(network)
+  }
+};
+```
+
+SDK Options (clickSDKOptions):
+```javascript
+const clickSDKOptions = {
+  appName: 'My Casper App',                              // Shown in popups
+  appId: 'csprclick-template',                           // App identifier
+  providers: ['casper-wallet', 'ledger', 'metamask-snap'], // Enabled wallets
+  chainName: 'casper'                                    // 'casper' or 'casper-test'
+};
+```
+
+---
+
+## Properties (window.csprclick.*)
+
+appName: string - Application name set during initialization
+appId: string - Application identifier
+casperNode: string - RPC interface URL for Casper network
+chainName: string - Network name ('casper' or 'casper-test')
+csprclickHost: string - CSPR.click server URL
+
+---
+
+## Methods
+
+### Authentication
+
+init(options: CsprClickInitOptions): void
+  - MUST be called first after library loads
+  - Initializes CSPR.click with configuration
+
+signIn(): void
+  - Shows sign-in dialog with wallet options
+
+signInWithAccount(account: AccountType): Promise<AccountType | undefined>
+  - Starts session with a known account (from getSignInOptions)
+
+signOut(): void
+  - Closes active session
+  - Triggers 'csprclick:signed_out' event
+
+connect(provider: string, options: any): Promise<AccountType | undefined>
+  - Connect using specific wallet provider
+
+disconnect(fromWallet: string, options?: any): void
+  - Clear wallet connection (user must re-grant permission next time)
+  - Pass empty string to disconnect current account
+
+switchAccount(withProvider?: string, options?: any): Promise<void>
+  - Switch to different account
+  - Call without arguments to show Switch Account modal
+
+forgetAccount(account: AccountType): void
+  - Remove account from known accounts list
+
+### Account Information
+
+getActiveAccount(): AccountType | null
+  - Get current session account (null if none)
+
+getActiveAccountAsync(options?: {withBalance: boolean}): Promise<AccountType | null>
+  - Get current account with optional balance
+
+getActivePublicKey(): Promise<string | undefined>
+  - Get current session public key
+
+getSignInOptions(refresh: boolean = false): Promise<any>
+  - Get enabled providers and known accounts for auto sign-in
+
+getAccountIdenticon(hex: string, size: number = 20): HTMLCanvasElement
+  - Generate account avatar canvas element
+
+### Provider Information
+
+getProviderInfo(provider?: string): Promise<ProviderInfo | undefined>
+  - Get connected wallet information
+
+isProviderPresent(provider: string): boolean
+  - Check if provider is enabled and installed
+
+isConnected(provider: string): Promise<boolean | undefined>
+  - Check if provider is connected to app
+
+isUnlocked(provider: string): Promise<boolean | undefined>
+  - Check if wallet is unlocked (undefined if unsupported)
+
+### Transactions
+
+send(transactionJSON: string | object, signingPublicKey: string, onStatusUpdate?: (status, data) => void, timeout: number = 120): Promise<SendResult | undefined>
+  - Sign and submit transaction to network
+  - Status callback receives: 'sent', 'processed', 'created', 'cancelled', 'error', 'timeout'
+
+sign(transactionJSON: string | object, signingPublicKey: string): Promise<SignResult | undefined>
+  - Sign transaction WITHOUT submitting (returns signature for custom workflows)
+
+signMessage(message: string, signingPublicKey: string): Promise<SignResult | undefined>
+  - Sign text message with active wallet
+
+### Utilities
+
+getCsprCloudProxy(): ICsprCloudProxy
+  - Get proxy object for CSPR.cloud REST and Streaming APIs
+
+showBuyCsprUi(): void
+  - Display Buy CSPR widget for credit card payments
+
+---
+
+## Types
+
+AccountType:
+```typescript
+{
+  provider: string;                    // Wallet provider ID
+  providerSupports: string[];          // ['sign-deploy', 'sign-transactionv1', 'sign-message']
+  cspr_name: string | null;            // CSPR.name name
+  public_key: string | null;           // Public key hex
+  connected_at: number;                // Initial connection timestamp
+  balance?: string;                    // Total balance in motes (liquid + staked)
+  liquid_balance?: string;             // Liquid balance in motes
+  logo?: string;                       // Avatar URL
+  token?: string | null;
+  custom?: any;
+}
+```
+
+CsprClickInitOptions:
+```typescript
+{
+  appName: string;                     // App name for popups
+  appId: string;                       // App identifier
+  contentMode: 'iframe' | 'popup';     // Sign-in interface mode
+  casperNode?: string;                 // RPC endpoint
+  chainName?: string;                  // 'casper' or 'casper-test'
+  providers: string[];                 // ['casper-wallet', 'ledger', 'metamask-snap']
+}
+```
+
+ProviderInfo:
+```typescript
+{
+  key: string;                         // Internal provider name
+  name: string;                        // Human-readable name
+  version: string;                     // Provider version
+  supports: string[];                  // ['sign-deploy', 'sign-transactionv1', 'sign-message']
+}
+```
+
+SendResult:
+```typescript
+{
+  cancelled: boolean;                  // User declined signature
+  deployHash: string | null;           // Deploy hash on network
+  transactionHash: string | null;      // Transaction hash
+  error: string | null;                // Error message
+  errorData: object | null;            // Error details
+  status: string | null;               // 'sent'|'processed'|'created'|'cancelled'|'error'|'timeout'
+  csprCloudTransaction: any;           // Raw CSPR.cloud streaming API response
+}
+```
+
+SignResult:
+```typescript
+{
+  cancelled: boolean;                  // User declined signature
+  signatureHex: string | null;         // Hex signature string
+  signature: Uint8Array | null;        // Signature bytes
+  deploy: object | null;               // Signed deploy JSON
+  transaction: object | null;          // Signed transaction
+  error: string | null;                // Error message
+}
+```
+
+---
+
+## Events
+
+Register events using: csprclick.on('event_name', callback)
+
+csprclick:loaded
+  - Library initialization complete
+  - Use once() not on() (fires only once)
+  - IMPORTANT: Don't call any method except init() before this event
+
+csprclick:signed_in
+  - New account connected
+  - Data: { origin: string, account: AccountType }
+  - Access account via evt.account (NOT evt.activeAccount)
+
+csprclick:switched_account
+  - Account switched after switchAccount() call
+  - Data: { account: AccountType }
+
+csprclick:unsolicited_account_change
+  - User changed wallet account externally
+  - Handle by calling: window.csprclick.signInWithAccount(evt.account)
+
+csprclick:signed_out
+  - Active account disconnected via signOut()
+
+csprclick:disconnected
+  - Wallet requested disconnect
+  - App should close current session
+
+csprclick:sign_in
+  - signIn() method called
+  - Respond by showing sign-in options
+
+---
+
+## CSPR.cloud Proxy
+
+Proxy must be enabled at https://console.cspr.build
+
+REST API:
+```javascript
+const proxy = window.csprclick.getCsprCloudProxy();
+const data = await proxy.fetch('/auction-metrics?includes=total_active_era_stake');
+```
+
+WebSocket Streaming:
+```javascript
+const proxy = window.csprclick.getCsprCloudProxy();
+const ws = proxy.newWebSocket('/transfers');
+ws.onmessage = (event) => console.log(JSON.parse(event.data));
+```
+
+Node RPC:
+```javascript
+const proxy = window.csprclick.getCsprCloudProxy();
+const rpcHandler = new HttpHandler(proxy.RpcURL, 'fetch');
+rpcHandler.setCustomHeaders({ Authorization: proxy.RpcDigestToken });
+const rpcClient = new RpcClient(rpcHandler);
+const hash = await rpcClient.getStateRootHashLatest();
+```
+
+---
+
+## Complete Integration Example
+
+```javascript
+// Configuration (must load BEFORE SDK)
+const clickUIOptions = {
+  uiContainer: 'csprclick-ui',
+  rootAppElement: '#app',
+  defaultTheme: 'light',
+  showTopBar: true
+};
+
+const clickSDKOptions = {
+  appName: 'My Casper App',
+  appId: 'csprclick-template',
+  providers: ['casper-wallet', 'ledger', 'metamask-snap']
+};
+
+// Event handling (after SDK loads)
+window.addEventListener('csprclick:loaded', () => {
+  window.csprclick.on('csprclick:signed_in', (evt) => {
+    console.log('Signed in:', evt.account.public_key);
+  });
+
+  window.csprclick.on('csprclick:signed_out', () => {
+    console.log('Signed out');
+  });
+
+  // Check existing connection
+  const account = window.csprclick.getActiveAccount();
+  if (account) console.log('Already connected:', account.public_key);
+});
+```
+
+Transaction example:
+```javascript
+const senderPk = activeAccount?.public_key?.toLowerCase() || '';
+const transaction = new NativeTransferBuilder()
+  .from(PublicKey.fromHex(senderPk))
+  .target(PublicKey.fromHex(recipientPk))
+  .amount('6000000000')
+  .id(Date.now())
+  .chainName(window.csprclick.chainName)
+  .payment(100_000_000)
+  .build();
+
+const result = await window.csprclick.send(
+  transaction.toJSON(),
+  senderPk,
+  (status, data) => console.log('Status:', status, data)
+);
+```
+
+---
+
+## Provider Reference
+
+| ID | Wallet |
+|----|--------|
+| casper-wallet | Casper Wallet browser extension |
+| ledger | Ledger hardware wallet |
+| metamask-snap | MetaMask Snap |
+
+## Transaction Status Reference
+
+| Status | Meaning |
+|--------|---------|
+| sent | Submitted to node |
+| processed | Executed (check result for success/failure) |
+| expired | TTL elapsed before execution |
+| cancelled | User rejected signature |
+| timeout | Monitoring stopped (default 120 seconds) |
+| error | Submission error occurred |
+
+---
+
+## Common Issues
+
+SDK not loading:
+- Ensure CDN script has defer="defer" attribute
+- Configuration scripts must load BEFORE CDN script
+
+Events not firing:
+- Register listeners inside 'csprclick:loaded' handler
+- Event names are case-sensitive
+- Verify window.csprclick exists
+
+"Wallet is locked" error:
+- SDK may fire signed_in before wallet fully unlocks
+- Add 1-2 second delay before calling signMessage() after signed_in
+
+Transaction failures:
+- Verify sender public key matches connected account
+- Check CSPR balance covers amount + gas
+- Confirm correct chainName ('casper' or 'casper-test')
+
+---
+
+## Resources
+
+Documentation: https://docs.cspr.click
+CSPR.cloud Docs: https://docs.cspr.cloud
+Casper JS SDK: https://docs.casper.network/developers/dapps/sdk/script-sdk
+CDN Latest: https://cdn.cspr.click/ui/
