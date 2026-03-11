@@ -1,6 +1,6 @@
 {
   "name": "csprclick-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An empty HTML app with CSPR.click using TypeScript",
   "scripts": {
     "build": "esbuild src/app.ts --bundle --outfile=public/app.js --format=iife --tree-shaking=false",
@@ -12,6 +12,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@make-software/csprclick-core-types": "^1.12.0"
+    "@make-software/csprclick-core-types": "2.0.0"
   }
 }

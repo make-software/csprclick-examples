@@ -44,7 +44,7 @@ export const SetupSection = () => {
   if (!document.getElementById(scriptId)) {
     const script = document.createElement('script');
     script.id = scriptId;
-    script.src = 'https://cdn.cspr.click/ui/v1.12.0/csprclick-client-1.12.0.js';
+    script.src = 'https://cdn.cspr.click/ui/v2.0.0/csprclick-client-2.0.0.js';
     script.defer = true;
     document.head.appendChild(script);
   }
