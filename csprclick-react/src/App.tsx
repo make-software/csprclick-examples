@@ -19,22 +19,28 @@ function App() {
   useEffect(() => {
     const scriptId = 'csprclick-script';
 
+    const onSignedIn = async (evt: any) => {
+      setActiveAccount(evt.account);
+    };
+    const onSwitchedAccount = async (evt: any) => {
+      setActiveAccount(evt.account);
+    };
+    const onSignedOut = async () => {
+      setActiveAccount(null);
+    };
+    const onDisconnected = async () => {
+      setActiveAccount(null);
+    };
+    const onUnsolicitedAccountChange = async (evt: any) => {
+      window.csprclick.signInWithAccount(evt.account);
+    };
+
     const addListeners = () => {
-      window.csprclick?.on('csprclick:signed_in', async (evt: any) => {
-        setActiveAccount(evt.account);
-      });
-      window.csprclick?.on('csprclick:switched_account', async (evt: any) => {
-        setActiveAccount(evt.account);
-      });
-      window.csprclick?.on('csprclick:signed_out', async () => {
-        setActiveAccount(null);
-      });
-      window.csprclick?.on('csprclick:disconnected', async () => {
-        setActiveAccount(null);
-      });
-      window.csprclick?.on('csprclick:unsolicited_account_change', async (evt: any) => {
-        window.csprclick.signInWithAccount(evt.account);
-      });
+      window.csprclick?.on('csprclick:signed_in', onSignedIn);
+      window.csprclick?.on('csprclick:switched_account', onSwitchedAccount);
+      window.csprclick?.on('csprclick:signed_out', onSignedOut);
+      window.csprclick?.on('csprclick:disconnected', onDisconnected);
+      window.csprclick?.on('csprclick:unsolicited_account_change', onUnsolicitedAccountChange);
     };
 
     if (!document.getElementById(scriptId)) {
@@ -50,11 +56,11 @@ function App() {
     });
 
     return () => {
-      window.csprclick?.off('csprclick:signed_in');
-      window.csprclick?.off('csprclick:switched_account');
-      window.csprclick?.off('csprclick:signed_out');
-      window.csprclick?.off('csprclick:disconnected');
-      window.csprclick?.off('csprclick:unsolicited_account_change');
+      window.csprclick?.off('csprclick:signed_in', onSignedIn);
+      window.csprclick?.off('csprclick:switched_account', onSwitchedAccount);
+      window.csprclick?.off('csprclick:signed_out', onSignedOut);
+      window.csprclick?.off('csprclick:disconnected', onDisconnected);
+      window.csprclick?.off('csprclick:unsolicited_account_change', onUnsolicitedAccountChange);
     };
   }, []);
 
