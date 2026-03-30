@@ -1,6 +1,6 @@
 ---
-name: csprclick-sdk-integration
-title: CSPR.click SDK Integration
+name: csprclick-sdk
+title: CSPR.click SDK
 description: Skills for integrating the CSPR.click Web SDK into dApps on the Casper blockchain. Covers wallet connection, transaction signing, event handling, theming, and CSPR.cloud API proxy — for React < 19 (npm), React 19+, Next.js, and Vanilla JS (CDN). Use when working on any CSPR.click integration task.
 allowed-tools: Read, Grep, Glob, Edit, Write, Bash
 user-invocable: true
