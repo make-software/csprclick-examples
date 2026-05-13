@@ -1,5 +1,4 @@
 import { globalIgnores } from 'eslint/config';
-import nxPlugin from '@nrwl/eslint-plugin-nx';
 import tsESLintPlugin from '@typescript-eslint/eslint-plugin';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
@@ -9,16 +8,9 @@ export default [
 
   {
     plugins: {
-      nx: nxPlugin,
       '@typescript-eslint': tsESLintPlugin,
       react: reactPlugin,
       'react-hooks': reactHooksPlugin
-    }
-  },
-  {
-    files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
-    rules: {
-      'nx/enforce-module-boundaries': 'off'
     }
   },
 
