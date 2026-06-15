@@ -7,11 +7,11 @@
     "serve": "npx http-serve -p 8080 ./public"
   },
   "author": "davidatwhiletrue",
-  "devDependencies": {
-    "esbuild": "^0.25.12",
-    "typescript": "^5.0.0"
-  },
   "dependencies": {
-    "@make-software/csprclick-core-types": "2.0.0"
+    "@make-software/csprclick-core-types": "2.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "typescript": "^5.9.3"
   }
 }

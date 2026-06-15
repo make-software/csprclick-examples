@@ -114,3 +114,11 @@ window.addEventListener('csprclick:loaded', () => {
     }
   });
 });
+
+if (!document.querySelector('script#csprclick-client')) {
+  const script = document.createElement('script');
+  script.src = 'https://cdn.cspr.click/ui/v2.1.0/csprclick-client-2.1.0.js';
+  script.id = 'csprclick-client';
+  script.async = true;
+  document.head.appendChild(script);
+}
