@@ -14,14 +14,41 @@ export const SpanTruncated = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
 
-  /* Responsive widths */
   @media (min-width: 768px) {
     width: 350px;
   }
 
   @media (min-width: 1024px) {
     width: 100%;
+  }
+`;
+
+export const ResponsiveTable = styled.table`
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+`;
+
+export const CodeBlock = styled.pre`
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 12px 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre;
+  box-sizing: border-box;
+
+  code {
+    font-family: inherit;
+    white-space: pre;
   }
 `;
 
@@ -32,3 +59,7 @@ export const StyledTitle = styled(FlexRow)(
         })
 );
 
+export const Divider = styled.hr`
+  width: 100%;
+  margin-bottom: 24px;
+`

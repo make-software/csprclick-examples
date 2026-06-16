@@ -14,7 +14,6 @@ export const Section = styled(FlexColumn)<SectionProps>(({ theme, withbackground
     span: {
       marginBottom: '10px',
 
-      fontFamily: 'Inter',
       fontSize: '16px',
       lineHeight: '24px',
 
