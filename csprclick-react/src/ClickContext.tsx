@@ -81,7 +81,7 @@ export const ClickProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
     if (!document.querySelector('script#csprclick-client')) {
       const script = document.createElement('script');
-      script.src = 'https://cdn.cspr.click/ui/v2.0.0-beta.4/csprclick-client-2.0.0-beta.4.js';
+      script.src = 'https://cdn.cspr.click/ui/v2.1.0/csprclick-client-2.1.0.js';
       script.async = true;
       script.id = 'csprclick-client';
       document.head.appendChild(script);
