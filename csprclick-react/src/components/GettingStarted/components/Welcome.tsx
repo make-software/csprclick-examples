@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import desktopBgImage from '../../../assets/bg-desktop-full.jpg';
 import mobileBgImage from '../../../assets/bg-mobile-full.jpg';
-import {Button, SvgIcon} from "@make-software/cspr-design";
+import { Button, SvgIcon } from '@make-software/cspr-design';
 import CsprClickMark from '../../../assets/csprclick-mark.svg';
 
 // Breakpoints
@@ -86,7 +86,9 @@ export const Welcome = () => {
         <SvgIcon src={CsprClickMark} height={80} width={80} />
         <GreetingText>Welcome to CSPR.click</GreetingText>
         <KillerAppText>Your starting point to develop the next web3 killer app.</KillerAppText>
-        <LearnMoreButton color="primaryRed" width={'176'} onClick={handleReadMore}>Learn more</LearnMoreButton>
+        <LearnMoreButton color="primaryRed" width={'176'} onClick={handleReadMore}>
+          Learn more
+        </LearnMoreButton>
       </Content>
     </Container>
   );

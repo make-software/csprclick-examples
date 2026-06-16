@@ -36,7 +36,7 @@ export default [
   {
     files: ['*.js', '*.jsx'],
     rules: {
-      quotes: ['warn', 'double']
+      quotes: ['warn', 'single']
     }
   }
 ];

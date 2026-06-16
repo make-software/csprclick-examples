@@ -1,12 +1,12 @@
 body {
-  margin: 0px;
+  margin: 0;
 }
 
 #csprclick-ui-wrapper {
   background-color: rgb(24, 29, 64);
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 1;
   width: 100%;
 }
@@ -37,4 +37,3 @@ body {
   width: 100%;
   background-color: #181d40;
 }
-

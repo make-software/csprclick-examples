@@ -1,6 +1,5 @@
 import { ICSPRClickSDK, CsprClickInitOptions } from '@make-software/csprclick-core-types';
-import { ClickUIOptions  } from '@make-software/csprclick-core-types/clickui';
-
+import { ClickUIOptions } from '@make-software/csprclick-core-types/clickui';
 
 export {};
 
@@ -17,7 +16,6 @@ declare module '*.css' {
   export default classes;
 }
 
-
 declare module '@make-software/cspr-design' {
- export const themeConfig: any;
+  export const themeConfig: any;
 }

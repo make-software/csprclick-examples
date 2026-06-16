@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {FlexRow} from "@make-software/cspr-design";
+import styled from 'styled-components';
+import { FlexRow } from '@make-software/cspr-design';
 
 export const StyledTD = styled.td`
   font-weight: 600;
@@ -52,14 +52,13 @@ export const CodeBlock = styled.pre`
   }
 `;
 
-export const StyledTitle = styled(FlexRow)(
-    ({ theme }) =>
-        theme.withMedia({
-            color: theme.styleguideColors.fillSecondary
-        })
+export const StyledTitle = styled(FlexRow)(({ theme }) =>
+  theme.withMedia({
+    color: theme.styleguideColors.fillSecondary
+  })
 );
 
 export const Divider = styled.hr`
   width: 100%;
   margin-bottom: 24px;
-`
+`;

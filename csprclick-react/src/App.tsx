@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Container from './components/container.tsx';
 import { Welcome } from './components/GettingStarted/components';
 import { LandingBrief, SignedInBrief } from './components/GettingStarted';
-import {useClickRef} from "./ClickContext.tsx";
+import { useClickRef } from './ClickContext.tsx';
 
 const GettingStartedContainer = styled.div`
   padding: 0 12px;
