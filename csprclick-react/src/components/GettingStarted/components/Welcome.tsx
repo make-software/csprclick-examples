@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import desktopBgImage from '../../../assets/bg-desktop-full.jpg';
 import mobileBgImage from '../../../assets/bg-mobile-full.jpg';
-import { Button } from "@make-software/cspr-design";
+import {Button, SvgIcon} from "@make-software/cspr-design";
+import CsprClickMark from '../../../assets/csprclick-mark.svg';
 
 // Breakpoints
 const breakpoints = {
@@ -15,7 +16,7 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
-  height: 693px;
+  height: 440px;
   width: 100%;
 
   @media (min-width: ${breakpoints.sm}) {
@@ -62,14 +63,9 @@ export const GreetingText = styled.div`
 export const KillerAppText = styled.div`
   color: #a8adbf;
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 24px;
   margin-top: 8px;
-  width: 81%;
-
-  @media (min-width: ${breakpoints.sm}) {
-    width: 100%;
-  }
 `;
 
 // CTA Button
@@ -87,6 +83,7 @@ export const Welcome = () => {
   return (
     <Container>
       <Content>
+        <SvgIcon src={CsprClickMark} height={80} width={80} />
         <GreetingText>Welcome to CSPR.click</GreetingText>
         <KillerAppText>Your starting point to develop the next web3 killer app.</KillerAppText>
         <LearnMoreButton color="primaryRed" width={'176'} onClick={handleReadMore}>Learn more</LearnMoreButton>

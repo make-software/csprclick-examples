@@ -1,63 +1,67 @@
-import { Account, BuyMeACoffee, Section, SetupSection } from './components';
+import { BuyMeACoffee, Section } from './components';
 import Container from '../container.tsx';
 import { Link } from "@make-software/cspr-design";
 
 export const LandingBrief = () => {
   return (
     <Container>
-      <h3>✨ Multiple wallets integration</h3>
+      <h3>✨ Wallet Aggregator</h3>
       <Section>
-        <span>This project template comes with full support for multiple wallets:</span>
-        <ul>
-          <li>Casper Wallet</li>
-          <li>Ledger</li>
-          <li>Metamask</li>
-        </ul>
         <span>
-          Your app can interact with any of them using the same API. CSPR.click takes care of
-          everything wallet related. If needed, you can{' '}
-            <Link
-                color={'primaryBlue'}
-                href={'https://docs.cspr.click/core-js-sdk/types#csprclickinitoptions'}
-                target="_blank"
-            >
-              modify the list of enabled wallets
-            </Link>
-          .
+          One API to connect every major wallet in the Casper ecosystem — no
+          juggling multiple SDKs or custom integrations.
+        </span>
+        <span>
+          Your dApp becomes instantly reachable to all Casper users, cutting
+          development costs and reducing onboarding drop-off.
         </span>
       </Section>
 
-      <h3>⚙️ Uniform UI/UX</h3>
+      <h3>🚀 Simplified Onboarding with Social Logins</h3>
       <Section>
         <span>
-          CSPR.click UI components provide a common UX across different Casper apps for an easy
-          management of accounts, settings, and future ecosystem-wide functionality.
+          Frictionless Single Sign-On through Google and Apple — no browser
+          extensions or wallet setup needed. Users can also create
+          self-custodial wallets linked directly to their social accounts.
         </span>
         <span>
-            <Link color={'primaryBlue'}
-                href={'https://docs.cspr.click/ui-sdk/customizing-the-top-bar'}
-                target="_blank"
-            >
-                Customize the elements in the top bar
-            </Link>{' '}
-          according to your application requirements. Add and remove settings selectors.
+          A familiar, trustworthy experience that drives faster adoption, higher
+          conversion, and a more inclusive entry point into Casper.
         </span>
       </Section>
 
-      <h3>🔝 Sign in</h3>
+      <h3>💳 Fiat On-Ramp</h3>
       <Section>
         <span>
-          Now, go back to the top of the page and sign in with your favorite wallet. Or, click here:
-          <b
-            onClick={(event) => {
-              event.preventDefault();
-              window.csprclick.signIn();
-              window.location.reload();
-            }}
+          Let users buy CSPR instantly with cards or wire transfers through
+          multiple integrated providers — fast, secure, and zero setup on your
+          side.
+        </span>
+        <span>
+          Reach a truly global audience with provider coverage across multiple
+          regions.
+        </span>
+      </Section>
+
+      <h3>☁️ CSPR.cloud Proxy</h3>
+      <Section>
+        <span>
+          Query indexed data, listen to contract events, and talk to the Casper
+          RPC directly from your frontend — no backend required.
+        </span>
+        <span>
+          Ship faster, lower infrastructure costs, and stay fully connected to
+          the Casper ecosystem.
+        </span>
+        <span>
+          Learn more in{' '}
+          <Link
+            color={'primaryBlue'}
+            href={'https://docs.cspr.click'}
+            target="_blank"
           >
-            {' '}
-            Connect
-          </b>
+            our documentation
+          </Link>
           .
         </span>
       </Section>
@@ -68,33 +72,8 @@ export const LandingBrief = () => {
 export const SignedInBrief = () => {
   return (
     <Container>
-      <h3>🎉 Awesome! You have successfully signed in! What&#39;s next?</h3>
-      <Section>
-        <span style={{ padding: '10px' }}>
-          Be sure that on this page you&#39;ll find all information you need for future integration.
-          Before you&apos;ll jump into development process, please scroll down and get familiar with
-          each section. Below you&#39;ll find some useful code snipped with explanation and easy
-          integration examples about most important features in the SDK which you&apos;ll use
-          frequently.
-        </span>
-      </Section>
-      <Section>
-        <ol type="1">
-          <li>
-            <a href="#useRef">CDN link</a>
-          </li>
-          <li>
-            <a href="#account">Get your user´s account and update your app</a>
-          </li>
-          <li>
-            <a href="#buyCoffee">Buy Alice a coffee on testnet</a>
-          </li>
-        </ol>
-      </Section>
-      <h3 id="useRef">🪝️ CDN link</h3>
-      <SetupSection />
-      <h3 id="account">🆔 Get access to your user account</h3>
-      <Account />
+      <h2>🎉 Awesome! You have successfully signed in! What&#39;s next?</h2>
+
       <h3 id="buyCoffee">☕ Buy Alice a coffee on testnet</h3>
       <BuyMeACoffee />
       <h3>🔥 Happy hacking!</h3>

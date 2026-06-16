@@ -13,16 +13,18 @@ export const Container = styled(FlexColumn)(
             color: theme.styleguideColors.contentSecondary,
 
             h2: {
-                fontSize: 'calc(12px + 2vmin)',
-                fontWeight: 700,
+                marginTop: '60px',
+                fontSize: '28px',
+                fontWeight: 500,
                 color: theme.styleguideColors.contentPrimary
             },
 
             h3: {
-                fontSize: 'calc(11px + 2vmin)',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '24px',
                 fontWeight: 500,
                 color: theme.styleguideColors.contentPrimary,
-                marginTop: '100px'
+                marginTop: '30px'
             },
 
             h5: {

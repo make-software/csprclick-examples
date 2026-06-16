@@ -1,14 +1,18 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.tsx';
+
 import { ThemeProvider } from "styled-components";
 import { themeConfig } from "@make-software/cspr-design";
+import './index.css';
+import {ClickProvider} from "./ClickContext.tsx";
+import App from './App.tsx';
 
-createRoot(document.getElementById('content')!).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
       <ThemeProvider theme={themeConfig.light}>
-          <App />
+          <ClickProvider>
+              <App />
+          </ClickProvider>
       </ThemeProvider>
   </StrictMode>
 );

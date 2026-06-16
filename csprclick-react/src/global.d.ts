@@ -1,10 +1,14 @@
-import { ICSPRClickSDK } from '@make-software/csprclick-core-types';
+import { ICSPRClickSDK, CsprClickInitOptions } from '@make-software/csprclick-core-types';
+import { ClickUIOptions  } from '@make-software/csprclick-core-types/clickui';
+
 
 export {};
 
 declare global {
   interface Window {
     csprclick?: ICSPRClickSDK;
+    clickUIOptions: ClickUIOptions;
+    clickSDKOptions: CsprClickInitOptions;
   }
 }
 

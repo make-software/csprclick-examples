@@ -1,10 +1,10 @@
 {
   "name": "csprclick-react",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "@make-software/cspr-design": "^2.0.4",
-    "casper-js-sdk": "^5.0.12",
+    "@make-software/csprclick-core-types": "^2.1.0",
+    "casper-js-sdk": "5.0.12",
     "prismjs": "^1.30.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -33,10 +34,8 @@
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.38.0",
     "@vitejs/plugin-react": "^4.7.0",
-    "esbuild": "^0.28.1",
     "eslint": "^9.31.0",
     "eslint-config-prettier": "^9.1.2",
-    "eslint-plugin-formatjs": "^5.4.0",
     "eslint-plugin-prettier": "^5.5.3",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -45,6 +44,6 @@
     "prettier": "^3.6.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.38.0",
-    "vite": "^7.0.5"
+    "vite": "^8.0.16"
   }
 }

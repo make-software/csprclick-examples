@@ -1,4 +1,36 @@
-#app {
+body {
+  margin: 0px;
+}
+
+#csprclick-ui-wrapper {
+  background-color: rgb(24, 29, 64);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+}
+
+.dark #csprclick-ui-wrapper {
+  background-color: rgb(19, 25, 51);
+}
+
+#csprclick-ui {
+  max-width: 1024px;
+  margin: auto;
+
+  @media (max-width: 1024px) {
+    padding: 0 12px;
+  }
+}
+
+#csprclick-top-bar > div {
+  padding: 0 12px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+#root {
   margin: 0 auto;
   text-align: center;
   height: 100vh;
@@ -6,11 +38,3 @@
   background-color: #181d40;
 }
 
-#csprclick-ui {
-  max-width: 960px;
-  margin: 0 auto;
-
-  @media (max-width: 1024px) {
-    padding: 0 12px;
-  }
-}

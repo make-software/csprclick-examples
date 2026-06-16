@@ -10,7 +10,6 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
@@ -23,7 +22,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "paths": {
-      "@make-software/cspr-design": ["./node_modules/@make-software/cspr-design/dist/lib/index.d.ts"]
+      "@make-software/cspr-design": ["./node_modules/@make-software/cspr-design/dist/lib/index.d.ts"],
+      "@/*": ["./src/*"]
       }
     },
   "include": ["src"]
