@@ -18,6 +18,9 @@ export const BuyMeACoffee = () => {
   const { clickRef } = useClickRef();
   const senderPublicKey: string = clickRef?.getActiveAccount()?.public_key?.toLowerCase() || '';
 
+  const senderIdenticon = clickRef?.getAccountIdenticon(senderPublicKey);
+  const recipientIdenticon = clickRef?.getAccountIdenticon(recipientPk);
+
   const handleSignTransaction = async (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
 
@@ -81,13 +84,27 @@ export const BuyMeACoffee = () => {
             <tr>
               <StyledTD>From:</StyledTD>
               <td>
-                <i>your account</i>
+                <FlexRow gap={8} align={'center'}>
+                  <img
+                    src={senderIdenticon?.toDataURL()}
+                    width={20}
+                    height={20}
+                    alt="Sender's Identicon"
+                  />
+                  <SpanTruncated>{senderPublicKey}</SpanTruncated>
+                </FlexRow>
               </td>
             </tr>
             <tr>
               <StyledTD>To:</StyledTD>
               <td>
                 <FlexRow gap={8} align={'center'}>
+                  <img
+                    src={recipientIdenticon?.toDataURL()}
+                    width={20}
+                    height={20}
+                    alt="Recipient's Identicon"
+                  />
                   <SpanTruncated>{recipientPk}</SpanTruncated>
                 </FlexRow>
               </td>

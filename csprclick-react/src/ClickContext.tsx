@@ -1,5 +1,10 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { ICSPRClickSDK, AccountType } from '@make-software/csprclick-core-types';
+import {
+  ICSPRClickSDK,
+  AccountType,
+  CsprClickInitOptions
+} from '@make-software/csprclick-core-types';
+import { ClickUIOptions } from '@make-software/csprclick-core-types/clickui';
 
 window.clickUIOptions = {
   uiContainer: 'csprclick-ui',
@@ -8,14 +13,14 @@ window.clickUIOptions = {
   showTopBar: true,
   accountMenuItems: ['AccountCardMenuItem', 'CopyHashMenuItem', 'BuyCSPRMenuItem'],
   defaultTheme: 'light'
-};
+} as ClickUIOptions;
 
 window.clickSDKOptions = {
   appName: 'CSPR.click React template',
   appId: 'csprclick-template',
   providers: ['casper-wallet', 'ledger', 'metamask-snap'],
   contentMode: 'iframe'
-};
+} as CsprClickInitOptions;
 
 // Define the shape of the context state
 interface ClickContextState {
@@ -49,13 +54,11 @@ export const ClickProvider: React.FC<{ children: ReactNode }> = ({ children }) =
           withBalance: true,
           withFiatCurrency: 'USD'
         });
-        if (account && account.public_key) {
-          setConnectedAccount(account);
-        } else {
-          setConnectedAccount(undefined);
-        }
+
+        setConnectedAccount(account?.public_key ? account : undefined);
       } catch (error) {
         console.error('Failed to get active account', error);
+        setConnectedAccount(undefined);
       }
     };
 
