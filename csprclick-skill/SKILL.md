@@ -60,11 +60,10 @@ When using the CSPR.cloud proxies, load the CSPR.cloud skill from https://cspr.c
    2. Define the initialization options for the SDK.
    3. Add a handler for the event `csprclick:loaded`. Commonly, this handler registers event listeners for other events.
    4. Add a script to the DOM to download the CSPR.click client runtime script.
-2. For React-based web applications, add the SDK download and initialization flow in a context provider that wraps the main application component.
+2. For React-based web applications, add the SDK download and initialization flow in a context provider that wraps the main application component. Also, add a `useClickRef` hook to access the SDK instance and its methods from any component in the application.
 3. Respond to wallet connection/switch/disconnection events by updating the application state.
-4. Use the `useClickRef` hook to access the SDK instance and its methods.
-5. For operations requiring a transaction signature, use the `send()` method to ask CSPR.click to handle the signature request, the deployment to the network, and the transaction status.
-6. Use the CSPR.cloud proxies to access the Casper Network RPC interface, the CSPR.cloud REST API endpoints, and the CSPR.cloud Streaming API from the web application.
+4. For operations requiring a transaction signature, use the `send()` method to ask CSPR.click to handle the signature request, the deployment to the network, and the transaction status.
+5. Use the CSPR.cloud proxies to access the Casper Network RPC interface, the CSPR.cloud REST API endpoints, and the CSPR.cloud Streaming API from the web application.
 
 ## Key Constraints AI Must Respect
 
